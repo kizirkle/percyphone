@@ -28,6 +28,19 @@ function App() {
         >
           Count is {count}
         </button>
+        <button
+          class="snipcart-add-item"
+          data-item-id="test-product-123"
+          data-item-price="10.00"
+          data-item-url="/"
+          data-item-description="Test product"
+          data-item-name="Test Product"
+        >
+  Add to cart
+</button>
+        <button class="snipcart-checkout">
+          Cart
+        </button>
       </section>
 
       <div className="ticks"></div>

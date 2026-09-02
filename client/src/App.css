@@ -1,6 +1,36 @@
-@import "tailindcss";
+@import "tailwindcss";
 
+:root {
+  --base: #f9f2e8;
+  --main: #dd97aa;
+  --text: #c64366;
+  --font-family: serif;
+
+}
+
+/* Global Styles */
 body {
+  background-color: var(--base);
+  color: var(--text);
+  font-family: var(--font-family);
+}
+
+.btn {
+  background-color: var(--main);
+  color: var(--base);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+/* Navigation Styles */
+.nav {
+  background-color: var(--base);
+  border-bottom: solid var(--main) 5px;
+  padding: 1rem;
+}
+
+.candy {
   font-family: "Emilys Candy", serif;
   font-weight: 400;
   font-style: normal;

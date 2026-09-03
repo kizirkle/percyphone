@@ -4,8 +4,8 @@ import Drop from "./Dropdown";
 function Nav() {
 
     return(
-            <nav className="nav candy justify-content-around d-flex flex-wrap col-12">
-                <div className="col-12 col-md-4 col-lg-1">
+            <nav className="nav candy justify-content-around d-flex flex-wrap col-12 p-5">
+                <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop
                     dropTitle="Clowns"
                     link1="/new"
@@ -16,9 +16,9 @@ function Nav() {
                     title3="more"/>
                 </div>
                 
-                <div className="col-12 col-md-4 col-lg-1">
+                <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop
-                    dropTitle="Clowns"
+                    dropTitle="Items"
                     link1="/new"
                     title1="new!"
                     link2="/stickers"
@@ -26,7 +26,7 @@ function Nav() {
                     link3="/more"
                     title3="more"/>
                 </div>
-                <div className="col-12 col-md-4 col-lg-1">
+                <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop 
                     dropTitle="Options"
                     link1="/faq"
@@ -43,9 +43,9 @@ function Nav() {
                 
 
 
-                <button className="snipcart-checkout btn col-12 col-md-4 col-lg-1">
+                <button className="snipcart-checkout btn col-12 col-md-4 col-lg-1 my-1">
                     <i className="fa-solid fa-basket-shopping"></i>
-                    <span>Basket</span>
+                    <span></span>
                 </button>
 
 </nav>

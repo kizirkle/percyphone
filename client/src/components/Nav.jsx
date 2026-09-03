@@ -8,7 +8,6 @@ function Nav() {
             <nav className="nav candy">
                 <ul className="nav-list d-flex justify-content-around flex-wrap col-12">
                     <li>
-                        <button>
                             <Drop 
                             dropTitle="Clowns"
                             link1="/new"
@@ -17,10 +16,8 @@ function Nav() {
                             title2="stickers"
                             link3="/more"
                             title3="more"/>
-                        </button>
                     </li>
                     <li>
-                        <button>
                             <Drop 
                             dropTitle="Clowns"
                             link1="/new"
@@ -29,11 +26,10 @@ function Nav() {
                             title2="stickers"
                             link3="/more"
                             title3="more"/>
-                        </button>
                     </li>
                     <li></li>
                     <li>
-                        <button>
+
                             <Drop 
                             dropTitle="Options"
                             link1="/faq"
@@ -42,10 +38,10 @@ function Nav() {
                             title2="about"
                             link3="/events"
                             title3="events"/>
-                        </button>
+
                     </li>
                     <li>
-                        <button className="snipcart-checkout">
+                        <button className="snipcart-checkout btn">
                             <i className="fa-solid fa-basket-shopping"></i>
                             <span>Basket</span>
                         </button>

@@ -17,7 +17,7 @@ function Product({name, price, image, description, id}) {
       <Card.Body className="justify-content-center d-flex flex-column">
         <Card.Title className="text-center">{name}</Card.Title>
         <Card.Text className="text-center">
-          {price}
+          £{price}
         </Card.Text>
         <Button
             className="snipcart-add-item"

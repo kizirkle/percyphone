@@ -6,11 +6,11 @@ import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 
 //pages
-import Home from './pages/Home'
-import Dash from './pages/Dash'
-import Faq from './pages/Faq'
-import About from './pages/About'
-import Error from './pages/Error'
+import Home from './pages/navigation/Home'
+import Dash from './pages/admin/Dash'
+import Faq from './pages/navigation/Faq'
+import About from './pages/navigation/About'
+import Error from './pages/navigation/Error'
 import Nav from './components/Nav'
 const router = createBrowserRouter([
   {

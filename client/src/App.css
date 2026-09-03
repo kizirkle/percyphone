@@ -35,6 +35,20 @@ body {
   gap: 3rem;
 }
 
+/* Product Styles */
+.product {
+  background-color: var(--base);
+  color: var(--text);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+.product-img {
+  border-radius:5px;
+}
+
 .candy {
   font-family: "Emilys Candy", serif;
   font-weight: 400;

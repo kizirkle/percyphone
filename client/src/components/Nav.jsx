@@ -1,32 +1,57 @@
 //imports
-import Dropdown from "./Dropdown";
+import Drop from "./Dropdown";
 // react
 function Nav() {
 
     return(
         <>
             <nav className="nav candy">
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul className="nav-list d-flex justify-content-around flex-wrap col-12">
                     <li>
                         <button>
-                            <Dropdown />
+                            <Drop 
+                            dropTitle="Clowns"
+                            link1="/new"
+                            title1="new!"
+                            link2="/stickers"
+                            title2="stickers"
+                            link3="/more"
+                            title3="more"/>
                         </button>
                     </li>
                     <li>
-                        <a className="snipcart-checkout">
+                        <button>
+                            <Drop 
+                            dropTitle="Clowns"
+                            link1="/new"
+                            title1="new!"
+                            link2="/stickers"
+                            title2="stickers"
+                            link3="/more"
+                            title3="more"/>
+                        </button>
+                    </li>
+                    <li></li>
+                    <li>
+                        <button>
+                            <Drop 
+                            dropTitle="Options"
+                            link1="/faq"
+                            title1="faq"
+                            link2="/about"
+                            title2="about"
+                            link3="/events"
+                            title3="events"/>
+                        </button>
+                    </li>
+                    <li>
+                        <button className="snipcart-checkout">
                             <i className="fa-solid fa-basket-shopping"></i>
                             <span>Basket</span>
-                        </a>
+                        </button>
                     </li>
                 </ul>
-                {/* PLACE DROPDOWN 1 HERE */}
-                {/* PLACE DROPDOWN 2 HERE */}
-                {/* PLACE LOGO HERE */}
-                {/* PLACE DROPDOWN 3 HERE */}
-                {/* PLACE CART HERE */}
+
 
             </nav>
         </>

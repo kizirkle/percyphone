@@ -30,6 +30,12 @@ body {
   padding: 1rem;
 }
 
+.nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 3rem;
+}
+
 .candy {
   font-family: "Emilys Candy", serif;
   font-weight: 400;

@@ -1,12 +1,12 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-export default function Example() {
+export default function Dropdown() {
   return (
     <Menu as="div" className="relative inline-block">
       <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white inset-ring-1 inset-ring-white/5 hover:bg-white/20">
         Options
-        <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
+        <ChevronDownIcon aria-hidden="true" className="" />
       </MenuButton>
 
       <MenuItems
@@ -16,38 +16,28 @@ export default function Example() {
         <div className="py-1">
           <MenuItem>
             <a
-              href="#"
+              href="/faq"
               className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
             >
-              Account settings
+              faq
             </a>
           </MenuItem>
           <MenuItem>
             <a
-              href="#"
+              href="/about"
               className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
             >
-              Support
+              about
             </a>
           </MenuItem>
           <MenuItem>
             <a
-              href="#"
+              href="/events"
               className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
             >
-              License
+              events
             </a>
           </MenuItem>
-          <form action="#" method="POST">
-            <MenuItem>
-              <button
-                type="submit"
-                className="block w-full px-4 py-2 text-left text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
-              >
-                Sign out
-              </button>
-            </MenuItem>
-          </form>
         </div>
       </MenuItems>
     </Menu>

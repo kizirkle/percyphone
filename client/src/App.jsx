@@ -4,17 +4,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import { createBrowserRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
+
+//pages
 import Home from './pages/Home'
 import Dash from './pages/Dash'
 import Faq from './pages/Faq'
 import About from './pages/About'
+import Error from './pages/Error'
 import Nav from './components/Nav'
-import { RouterProvider } from 'react-router-dom'
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
   },
   {
     path: "/dash",

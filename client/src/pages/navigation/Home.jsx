@@ -6,7 +6,7 @@ function Home() {
 
     return(
             <main className="candy">
-                <ProductSection  title="hi"/>
+                <ProductSection sectionTitle="New Arrivals!"/>
                 <p> hi im homepage</p>
                 <Product
                 id="1"

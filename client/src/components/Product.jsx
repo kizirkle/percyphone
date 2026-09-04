@@ -22,7 +22,7 @@ function Product({name, price, image, description, id}) {
     //used in: home, clowns, ProductSection
     return (
         //bootstrap card
-        <Card className="product" style={{ width: '18rem' }}>
+        <Card className="product">
 
             {/* Product Image */}
             {/* TODO: MAKE PRODUCT LINK */}

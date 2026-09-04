@@ -3,23 +3,38 @@
   --base: #f9f2e8;
   --main: #dd97aa;
   --text: #c64366;
+  --ombre: linear-gradient(#f9f2e8, #f4e8ce);
   --font-family: serif;
 
 }
 
 /* Global Styles */
+/* #f1dce2*/
 body {
-  background-color: var(--base);
+  background: var(--base);
   color: var(--text);
   font-family: var(--font-family);
 }
 
+/* buttons */
 .btn {
   background-color: var(--main);
   color: var(--base);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: var(--base);
+  color: var(--main);
+  cursor: pointer;
+}
+
+.btn-dark {
+  --bs-btn-active-bg: var(--text);          
+  --bs-btn-active-border-color: var(--text); 
+  --bs-btn-active-color: var(--base);        
 }
 
 .title {
@@ -30,7 +45,7 @@ body {
 /* Navigation Styles */
 .nav {
   background-color: var(--base);
-  border-bottom: solid var(--main) 5px;
+  border-bottom: solid var(--main) 2px;
   padding: 1rem;
 }
 
@@ -45,7 +60,7 @@ body {
   background-color: var(--base);
   color: var(--text);
   border: none;
-  padding: 5px;
+  padding: 12px;
   border-radius: 5px;
   margin: 1rem;
   width: 12rem;

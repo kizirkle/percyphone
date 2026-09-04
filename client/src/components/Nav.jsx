@@ -29,7 +29,7 @@ function Nav() {
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop 
                     dropTitle="Options"
-                    link1="/home"
+                    link1="/"
                     title1="home"
                     link2="/faq"
                     title2="faq"

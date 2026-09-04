@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 
@@ -11,7 +8,12 @@ import Dash from './pages/admin/Dash'
 import Faq from './pages/navigation/Faq'
 import About from './pages/navigation/About'
 import Error from './pages/navigation/Error'
+import Clowns from './pages/navigation/Clowns'
+import Events from './pages/navigation/Events'
+
+//components
 import Nav from './components/Nav'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +29,16 @@ const router = createBrowserRouter([
     element: <Faq />,
   },
   {
-    path: "/About",
+    path: "/about",
     element: <About />,
+  },
+  {
+    path: "/events",
+    element: <Events />,
+  },
+  {
+    path: "/clowns",
+    element: <Clowns />,
   }
 ])
 function App() {

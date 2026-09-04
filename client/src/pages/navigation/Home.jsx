@@ -1,10 +1,12 @@
 //imports
 import Product from "../../components/Product";
+import ProductSection from "../../components/ProductSection";
 //react
 function Home() {
 
     return(
             <main className="candy">
+                <ProductSection  title="hi"/>
                 <p> hi im homepage</p>
                 <Product
                 id="1"

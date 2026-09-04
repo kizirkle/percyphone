@@ -16,6 +16,16 @@ body {
   font-family: var(--font-family);
 }
 
+.footer {
+  background: var(--main);
+  color: var(--base);
+  text-align: center;
+  padding: 5px;
+  align-items: center;
+  display: flex;
+  
+}
+
 /* buttons */
 .btn {
   background-color: var(--main);

@@ -10,9 +10,11 @@ import About from './pages/navigation/About'
 import Error from './pages/navigation/Error'
 import Clowns from './pages/navigation/Clowns'
 import Events from './pages/navigation/Events'
+import Login from './pages/admin/Login'
 
 //components
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/clowns",
     element: <Clowns />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   }
 ])
 function App() {
@@ -48,6 +54,7 @@ function App() {
     <>
       <Nav />
       <RouterProvider router={router} />
+      <Footer />
     </>
   )
 }

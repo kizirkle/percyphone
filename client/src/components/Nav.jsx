@@ -29,14 +29,14 @@ function Nav() {
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop 
                     dropTitle="Options"
-                    link1="/faq"
-                    title1="faq"
-                    link2="/about"
-                    title2="about"
-                    link3="/events"
-                    title3="events"
-                    link4="/"
-                    title4="home"
+                    link1="/home"
+                    title1="home"
+                    link2="/faq"
+                    title2="faq"
+                    link3="/about"
+                    title3="about"
+                    link4="/events"
+                    title4="events"
                     link5="/login"
                     title5="admin"/>
                 </div>

@@ -8,22 +8,22 @@ function Nav() {
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop
                     dropTitle="Clowns"
-                    link1="/new"
+                    link1="/clowns#new"
                     title1="new!"
-                    link2="/stickers"
+                    link2="/clowns#stickers"
                     title2="stickers"
-                    link3="/more"
+                    link3="/clowns#more"
                     title3="more"/>
                 </div>
                 
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop
                     dropTitle="Items"
-                    link1="/new"
+                    link1="/shop#new"
                     title1="new!"
-                    link2="/stickers"
+                    link2="/shop#stickers"
                     title2="stickers"
-                    link3="/more"
+                    link3="/shop#more"
                     title3="more"/>
                 </div>
                 <div className="col-12 col-md-4 col-lg-1 my-1">

@@ -1,13 +1,15 @@
-//imports
+//import
 import Sorter from '../../components/Sorter';
+
 //react
-function Clowns() {
+function Shop() {
 
     return(
         <main>
-            <Sorter keyword="clowns"/>
+            <Sorter keyword="no" />
         </main>
     )
 }
-//export
-export default Clowns;
+
+//export 
+export default Shop;

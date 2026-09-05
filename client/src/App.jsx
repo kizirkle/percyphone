@@ -11,6 +11,7 @@ import Error from './pages/navigation/Error'
 import Clowns from './pages/navigation/Clowns'
 import Events from './pages/navigation/Events'
 import Login from './pages/admin/Login'
+import Shop from './pages/navigation/Shop'
 
 //components
 import Nav from './components/Nav'
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/shop",
+    element: <Shop />,
   }
 ])
 function App() {

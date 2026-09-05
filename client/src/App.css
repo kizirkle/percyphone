@@ -5,8 +5,31 @@
   --text: #c64366;
   --ombre: linear-gradient(#f9f2e8, #f4e8ce);
   --font-family: serif;
-
+  
 }
+
+/* Scrollbar */
+
+html{
+  scrollbar-color: var(--main) var(--base);
+  scrollbar-width: 4px;
+}
+
+/* Legacy Scrollbar */
+html::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--main);
+  width:4px;
+  border-radius:4px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--base);
+}
+
 
 /* Global Styles */
 /* #f1dce2*/
@@ -14,6 +37,7 @@ body {
   background: var(--base);
   color: var(--text);
   font-family: var(--font-family);
+  
 }
 
 .footer {
@@ -23,8 +47,16 @@ body {
   padding: 5px;
   align-items: center;
   display: flex;
-  
+
 }
+
+.link{
+  color: var(--base);
+}
+.link:active, .link:hover{
+  color: var(--text);
+}
+
 
 /* buttons */
 .btn {
@@ -91,3 +123,4 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+

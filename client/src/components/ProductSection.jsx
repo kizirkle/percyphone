@@ -10,7 +10,7 @@ function ProductSection({sectionTitle, productsTag, newProducts}){
 
     return(
         <div>
-            <h2 className="title m-2">
+            <h2 className="title candy m-2">
                 {sectionTitle}
             </h2>
             {/* Place fetched products here */}

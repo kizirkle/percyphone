@@ -2,10 +2,7 @@
 :root {
   --base: #f9f2e8;
   --main: #dd97aa;
-<<<<<<< Updated upstream
-=======
   --dark_base: #efe3d3;
->>>>>>> Stashed changes
   --text: #c64366;
   --ombre: linear-gradient(#f9f2e8, #f4e8ce);
   --font-family: serif;
@@ -101,8 +98,6 @@ body {
   gap: 3rem;
 }
 
-<<<<<<< Updated upstream
-=======
 .drop{
   background:var(--dark_base);
 }
@@ -122,7 +117,6 @@ body {
   width:100%;
 
 }
->>>>>>> Stashed changes
 /* Product Styles */
 .product {
   background-color: var(--base);

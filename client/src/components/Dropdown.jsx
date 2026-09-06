@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 //etc...
 function Drop({dropTitle, dropArray, title1, link1, title2, link2, title3, link3, title4, link4, title5, link5}) {
   const drops = dropArray.map((drop) => {
-    return <Dropdown.Item key={drop.title} href={drop.link}>{drop.title}</Dropdown.Item>
+    return <Dropdown.Item className="dropItem" key={drop.title} href={drop.link}>{drop.title}</Dropdown.Item>
   })
   
     return (
@@ -19,7 +19,7 @@ function Drop({dropTitle, dropArray, title1, link1, title2, link2, title3, link3
                 {dropTitle}
             </Dropdown.Toggle>
             {/* Dropdown menu */}
-            <Dropdown.Menu data-bs-theme="dark">
+            <Dropdown.Menu data-bs-theme="dark" className="drop">
                 {drops}
             </Dropdown.Menu>
         </Dropdown>

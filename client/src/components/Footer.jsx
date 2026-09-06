@@ -4,7 +4,7 @@
 function Footer() {
 
     return(
-        <div className="footer d-flex flex-column pt-3 justify-content-center candy">
+        <div className="footer mt-auto d-flex flex-column pt-3 justify-content-center candy">
             <p>Percyphone</p>
             <div id="social-media-links" className="d-flex flex-row justify-content-around col-12">
                 <section>

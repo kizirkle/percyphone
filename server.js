@@ -24,36 +24,10 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
-//get all products
+app.use('/api/products', productRoutes);
+app.use('/api/genres', genreRoutes);
+app.use('/api/tags', tagRoutes);
+app.use('/api/admin', adminRoutes);
 
-//get products by tags
+module.exports = app;
 
-//get products by genres
-
-//create product
-
-//edit product
-
-//delete product
-
-//get tags
-
-//create tag
-
-//edit tag
-
-//delete tag
-
-//get genres
-
-//create genre
-
-//edit genre
-
-//delete genre
-
-//login
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-})

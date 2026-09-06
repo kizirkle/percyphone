@@ -2,6 +2,8 @@
 :root {
   --base: #f9f2e8;
   --main: #dd97aa;
+  --dark_base: #efe3d3;
+  --darker_base: #6b424d;
   --text: #c64366;
   --ombre: linear-gradient(#f9f2e8, #f4e8ce);
   --font-family: serif;
@@ -97,6 +99,20 @@ body {
   gap: 3rem;
 }
 
+.drop{
+  background:var(--dark_base);
+}
+.dropItem{
+  color:var(--text);
+}
+.dropItem:hover{
+  background:var(--base);
+  color:var(--main);
+}
+
+.drop:active{
+  background:var(--text);
+}
 /* Product Styles */
 .product {
   background-color: var(--base);

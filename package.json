@@ -208,7 +208,8 @@
   "scripts": {
     "server": "npm start --prefix server",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && vite build"
   },
   "repository": {
     "type": "git",

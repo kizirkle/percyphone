@@ -3,7 +3,6 @@
   --base: #f9f2e8;
   --main: #dd97aa;
   --dark_base: #efe3d3;
-  --darker_base: #6b424d;
   --text: #c64366;
   --ombre: linear-gradient(#f9f2e8, #f4e8ce);
   --font-family: serif;
@@ -112,6 +111,11 @@ body {
 
 .drop:active{
   background:var(--text);
+}
+
+.banner-img{
+  width:100%;
+
 }
 /* Product Styles */
 .product {

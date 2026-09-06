@@ -1,4 +1,5 @@
 //imports
+import Product from "../../components/Product";
 import Banner from "../../components/Banner";
 import ProductSection from "../../components/ProductSection";
 //react
@@ -8,6 +9,7 @@ function Home() {
             <main className="candy">
                 <Banner/>
                 <ProductSection sectionTitle="New Arrivals!"/>
+                <ProductSection sectionTitle="Hot Items!"/>
             </main>
     )
 }

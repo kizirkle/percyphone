@@ -2,7 +2,7 @@
 import Product from "./Product";
 
 
-function ProductSection({sectionTitle, productsTag, newProducts}){
+function ProductSection({sectionTitle, key, productsTag, newProducts}){
     //Fetch products from backend and display them in a flex layout
     //if productsTag is provided, display the tag.
     //if newProducts is true, display the products released in the last month.
@@ -10,7 +10,7 @@ function ProductSection({sectionTitle, productsTag, newProducts}){
 
     return(
         <div>
-            <h2 className="title candy m-2">
+            <h2 id={key} className="title candy m-2">
                 {sectionTitle}
             </h2>
             {/* Place fetched products here */}

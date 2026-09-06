@@ -58,7 +58,7 @@ function App() {
   return (
     <>
       <Nav />
-      <RouterProvider router={router} />
+      <RouterProvider router={router} className="d-flex flex-column"/>
       <Footer />
     </>
   )

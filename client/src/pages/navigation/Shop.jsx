@@ -6,7 +6,26 @@ function Shop() {
 
     return(
         <main>
-            <Sorter keyword="no" />
+            <Sorter keyword="no" 
+            sectionArray={[
+                {
+                    title: "New Arrivals!",
+                    id: "new"
+                },
+                {
+                    title: "Keychains",
+                    id: "keychains"
+                },
+                {
+                    title: "Charms",
+                    id: "charms"
+                },
+                {
+                    title: "Badges",
+                    id: "badges"
+                }
+            ]}
+            />
         </main>
     )
 }

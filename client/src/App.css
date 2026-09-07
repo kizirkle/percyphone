@@ -90,6 +90,10 @@ body {
   background-color: var(--base);
   border-bottom: solid var(--main) 2px;
   padding: 1rem;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .nav ul {
@@ -109,8 +113,9 @@ body {
   color:var(--main);
 }
 
-.drop:active{
-  background:var(--text);
+.dropItem:active{
+  background:var(--dark_base);
+  color:var(--text);
 }
 
 .banner-img{

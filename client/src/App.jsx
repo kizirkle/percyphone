@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
-import { RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, redirect, RouterProvider} from 'react-router-dom'
 
 //pages
 import Home from './pages/navigation/Home'
@@ -17,6 +16,17 @@ import Shop from './pages/navigation/Shop'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 
+//Check if admin is logged in before allowing them to access dash
+const checkAuth = () => {
+  const token = localStorage.getItem("adminId");
+
+  if(!token){
+    throw redirect('/');
+  };
+
+  return {isAuthenticated: true};
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,8 +34,9 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/dash",
+    path: "/admin/dashboard",
     element: <Dash />,
+    loader: checkAuth,
   },
   {
     path: "/faq",
@@ -53,8 +64,6 @@ const router = createBrowserRouter([
   }
 ])
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Nav />

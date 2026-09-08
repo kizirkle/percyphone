@@ -16,7 +16,9 @@ CREATE TABLE product(
     description VARCHAR(1000),
     price INT,
     image VARCHAR(600),
-    stock INT
+    stock INT,
+    is_clown BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE tag (
@@ -32,7 +34,7 @@ CREATE TABLE tagged_product (
 );
 
 CREATE TABLE event (
-    event_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    event_id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     description VARCHAR(500),
     table_num VARCHAR(50)

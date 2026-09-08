@@ -11,6 +11,7 @@
     "aria-hidden": "^1.2.6",
     "balanced-match": "^4.0.4",
     "baseline-browser-mapping": "^2.11.20",
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.3.0",
     "bootstrap": "^5.3.8",
     "brace-expansion": "^5.0.9",
@@ -206,7 +207,7 @@
     "zod-validation-error": "^4.0.2"
   },
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "node start.js",
     "client": "npm run dev --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "cd client && vite build"

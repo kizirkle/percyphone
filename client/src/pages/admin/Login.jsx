@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 function Login() {
     //change the state to the login information each time it gets changed
     var [formState, setFormState] = useState({username:'', email:'', password:''});
-
+    var [formError, setFormError] = useState('');
     //when a value(username, email, password) is changed in the form, 
     // change the state formstate using setFormState
     const handleChange = (event) => {
@@ -21,12 +21,28 @@ function Login() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
+            var response = await fetch('/api/admin', {
+                method:"POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formState)
+            });
 
+            const data = await response.json();
+
+            if(!response.ok){
+                setFormError(data.message || "login failed");
+                return;
+            }
+
+            localStorage.setItem('adminId', data.admin.id);
+            window.location.href = '/admin/dashboard';
         } catch (e) {
-          setFormError(true);
+          setFormError("Something went wrong.");
           console.error(e);
         }
-    
+
         // clear form values
         setFormState({
           username: '',
@@ -39,7 +55,7 @@ function Login() {
         <main className="d-flex col-12 flex-column align-items-center">
             <h2 className="candy m-4">Please Login:</h2>
 
-            <form className="d-flex flex-column col-12 align-items-center p-4 mb-4">
+            <form onSubmit={handleFormSubmit} className="d-flex flex-column col-12 align-items-center p-4 mb-4">
                 <label className=" candy m-2 d-flex flex-column col-5 align-items-center">
                     Username
                     <input 
@@ -68,9 +84,9 @@ function Login() {
                     />
                 </label>
 
-                <span id="message"></span>
+                <span id="message">{formError}</span>
 
-                <button type="submit" onClick={handleFormSubmit} className="btn m-2">Login</button>
+                <button type="submit" className="btn m-2">Login</button>
             </form>
         </main>
     )

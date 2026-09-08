@@ -1,5 +1,14 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/(.*)", 
+      "destination": "/index.html" 
+    }, 
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    }],
+
   "buildCommand": "npm run build",
   "outputDirectory": "./client/dist"
 }

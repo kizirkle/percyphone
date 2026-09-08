@@ -42,9 +42,9 @@ CREATE TABLE event (
 
 CREATE TABLE admin (
     id SMALLINT PRIMARY KEY CHECK (id = 1),
-    username VARCHAR(100) NOT NULL DEFAULT 'PercyPhone',
-    name VARCHAR(100) NOT NULL DEFAULT 'Percy',
-    email VARCHAR(255) NOT NULL UNIQUE DEFAULT 'percyphone@gmail.com',
+    username VARCHAR(100) NOT NULL DEFAULT '-',
+    name VARCHAR(100) NOT NULL DEFAULT '-',
+    email VARCHAR(255) NOT NULL UNIQUE DEFAULT '-',
     password_hash VARCHAR(255) NOT NULL 
 );
 

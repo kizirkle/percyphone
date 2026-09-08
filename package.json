@@ -4,6 +4,7 @@
   "description": "PercyPhone's Official E-Commerce Site!",
   "main": "eslint.config.js",
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "accepts": "^2.0.0",
     "acorn": "^8.18.0",
     "acorn-jsx": "^5.3.2",

@@ -1,52 +1,57 @@
 CREATE SCHEMA IF NOT EXISTS percyphone;
 
+SET search_path TO percyphone;
+
 -- Clear tables if they already exist
-DROP TABLE IF EXISTS product;
-DROP TABLE IF EXISTS tag;
-DROP TABLE IF EXISTS genre;
-DROP TABLE IF EXISTS taggedProduct;
-DROP TABLE IF EXISTS genredProduct;
-DROP TABLE IF EXISTS admin;
+DROP TABLE IF EXISTS product CASCADE;
+DROP TABLE IF EXISTS tag CASCADE;
+DROP TABLE IF EXISTS tagged_product CASCADE;
+DROP TABLE IF EXISTS admin CASCADE;
+DROP TABLE IF EXISTS event CASCADE;
 
 -- Create tables
-CREATE TABLE product {
-    "id" SERIAL PRIMARY KEY UNIQUE NOT NULL,
-    "name" VARCHAR(50),
-    "description" VARCHAR(1000),
-    "price" INT,
-    "image" VARCHAR(600),
-    "stock" INT,
-};
+CREATE TABLE product(
+    id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    name VARCHAR(50),
+    description VARCHAR(1000),
+    price INT,
+    image VARCHAR(600),
+    stock INT
+);
 
-CREATE TABLE tag {
-    "id" SERIAL PRIMARY KEY UNIQUE NOT NULL,
-    "name" VARCHAR(50)
-};
+CREATE TABLE tag (
+    id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    name VARCHAR(50),
+    is_section BOOLEAN NOT NULL DEFAULT FALSE
+);
 
-CREATE TABLE genre {
-    "id" SERIAL PRIMARY KEY UNIQUE NOT NULL,
-    "name" VARCHAR(50)
-};
+CREATE TABLE tagged_product (
+    tag_id INT REFERENCES tag(id) ON DELETE CASCADE,
+    product_id INT REFERENCES product(id) ON DELETE CASCADE,
+    PRIMARY KEY (tag_id, product_id)
+);
 
-CREATE TABLE taggedProduct {
-    "tag_id" INT REFERENCES tag("id") ON DELETE CASCADE,
-    "product_id" INT REFERENCES product("id") ON DELETE CASCADE,
-    
+CREATE TABLE event (
+    event_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    name VARCHAR(50),
+    description VARCHAR(500),
+    table_num VARCHAR(50)
+);
 
-    PRIMARY KEY ("tag_id", "product_id")
-};
+CREATE TABLE admin (
+    id SMALLINT PRIMARY KEY CHECK (id = 1),
+    username VARCHAR(100) NOT NULL DEFAULT 'PercyPhone',
+    name VARCHAR(100) NOT NULL DEFAULT 'Percy',
+    email VARCHAR(255) NOT NULL UNIQUE DEFAULT 'percyphone@gmail.com',
+    password_hash VARCHAR(255) NOT NULL 
+);
 
-CREATE TABLE genredProduct {
-    "genre_id" INT REFERENCES genre("id") ON DELETE CASCADE,
-    "product_id" INT REFERENCES product("id") ON DELETE CASCADE,
-    
-
-    PRIMARY KEY ("genre_id", "product_id")
-};
-
-CREATE TABLE admin {
-    id,
-    name "Percy",
-    email "percyphone@gmail.com"
-
-};
+-- create Admin
+INSERT INTO admin (id, username, name, email, password_hash)
+VALUES (
+    1, 
+    'PercyPhone',
+    'Percy', 
+    'percyphone@gmail.com', 
+    '$2b$10$S6IY0dvqZx0SWGcvFboeouMFC2qZel4dpIXwskYC/KvBYBKyL5zOy'
+);

@@ -6,6 +6,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  res.send('Get productbytag');
+});
+
+router.post('/', (req, res) => {
+  res.send('Get productbygenre');
+});
+
+router.post('/', (req, res) => {
   res.send('Create a product');
 });
 

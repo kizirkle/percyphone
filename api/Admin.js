@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
 
     //query supabase database.
     const {data, error} = await supabase
+      .schema("percyphone")
       .from("admin")
       .select("*")
       .eq("email", email)

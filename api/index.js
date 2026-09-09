@@ -1,11 +1,14 @@
-const router = require('express').Router();
+const express = require('express');
+const app = express();
 
 //const productRoutes = require('./Product');
 //const tagRoutes = require('./Tag');
 const adminRoutes = require('./Admin');
 
-//router.use('/products', productRoutes);
-//router.use('/tags', tagRoutes);
-router.use('/admin', adminRoutes);
+app.use(express.json());
 
-module.exports = router;
+//app.use('/products', productRoutes);
+//app.use('/tags', tagRoutes);
+app.use('/admin', adminRoutes);
+
+module.exports = app;

@@ -1,12 +1,15 @@
+//imports
+require('dotenv').config();
 const express = require('express');
-const router = express.Router();
 
-//const productRoutes = require('./Product');
-//const tagRoutes = require('./Tag');
-const adminRoutes = require('./Admin');
+//setting up express
+const app = express();
+const api = require('./router');
 
-//app.use('/products', productRoutes);
-//app.use('/tags', tagRoutes);
-router.use('/admin', adminRoutes);
+//middleware
+app.use(express.json());
 
-module.exports = router;
+app.use('/api', api);
+
+module.exports = app;
+

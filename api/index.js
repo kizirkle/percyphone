@@ -11,4 +11,4 @@ app.use(express.json());
 //app.use('/tags', tagRoutes);
 app.use('/admin', adminRoutes);
 
-module.exports = app;
+module.exports = require('../server');

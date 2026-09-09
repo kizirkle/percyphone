@@ -1,10 +1,31 @@
 //imports
+import AdminProduct from '../../components/admin/AdminProduct';
+import AdminTag from '../../components/admin/AdminTag';
+import AdminEvent from '../../components/admin/AdminEvent';
 
-
+import { useState } from 'react';
 
 //react
 function Dash() {
-    
+    //tab data
+    const tab_data = [
+        {
+            id: 'admin_product',
+            label: 'Create/Edit a Product',
+            content: <AdminProduct/>
+        },
+        {
+            id: 'admin_tag',
+            label: 'Create/Edit a Tag',
+            content: <AdminTag/>
+        },
+        {
+            id: 'admin_event',
+            label: 'Create/Edit an Event',
+            content: <AdminEvent/>
+        },
+    ]
+    var [activeTab, setActiveTab] = useState('admin_product');
 
     //logout admin
     function adminLogout(){
@@ -15,15 +36,27 @@ function Dash() {
     return(
         <main className="d-flex flex-column align-items-center justify-content-around candy">
             <h1>Welcome, Percy!</h1>
-            {/* Buttons Section */}
-            <section className="d-flex col-12  flex-wrap">
-                <div className="d-flex flex-column col-4">
-                    <button className="btn m-1 col-12">Create/Edit a Product</button>
-                    <button className="btn m-1 col-12">Create/Edit a Tag</button>
-                    <button className="btn m-1 col-12">Create/Edit an Event</button>
-                    <a href="/">
-                        <button className="btn m-1 col-12" onClick={adminLogout} >Logout</button>
+            
+            <section className="d-flex col-12 justify-content-between flex-wrap">
+                {/* Buttons Section */}
+                <div className="d-flex flex-column justify-content-between col-lg-3 col-12">
+                    {
+                        tab_data.map((tab) => (
+                            <button
+                            className="btn m-1 mx-3"
+                            onClick={() => setActiveTab(tab.id)}
+                            >
+                                {tab.label}
+                            </button>
+                        ))
+                    }
+                    <a href="/" className="btn m-1 mx-3" onClick={adminLogout} >
+                        Logout
                     </a>
+                </div>
+                {/* Tab Section */}
+                <div className="col-lg-8 col-12 m-3">
+                    {tab_data.find((tab) => tab.id === activeTab)?.content}
                 </div>
                 
             </section>

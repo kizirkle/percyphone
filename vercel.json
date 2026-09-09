@@ -3,7 +3,7 @@
      {
       "source": "/api/:path*",
       "destination": "/api/index.js"
-    }
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"

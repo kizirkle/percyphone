@@ -93,7 +93,7 @@ body {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1;
 }
 
 .nav ul {

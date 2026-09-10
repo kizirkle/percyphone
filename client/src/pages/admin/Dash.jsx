@@ -37,13 +37,14 @@ function Dash() {
         <main className="d-flex flex-column align-items-center justify-content-around candy">
             <h1>Welcome, Percy!</h1>
             
-            <section className="d-flex col-12 justify-content-between flex-wrap">
+            <section className="d-flex col-12 justify-content-between mt-2 flex-wrap">
                 {/* Buttons Section */}
                 <div className="d-flex flex-column justify-content-between col-lg-3 col-12">
                     {
                         tab_data.map((tab) => (
                             <button
                             className="btn m-1 mx-3"
+                            key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             >
                                 {tab.label}
@@ -55,7 +56,7 @@ function Dash() {
                     </a>
                 </div>
                 {/* Tab Section */}
-                <div className="col-lg-8 col-12 m-3">
+                <div className="col-lg-9 col-12">
                     {tab_data.find((tab) => tab.id === activeTab)?.content}
                 </div>
                 

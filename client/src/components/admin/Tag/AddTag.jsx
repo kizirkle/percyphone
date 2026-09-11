@@ -49,7 +49,7 @@ function AddTag(){
     };
 
     return(
-        <section className="col-12 justify-content-center ">
+        <section className="d-flex col-12 justify-content-center ">
             <form onSubmit={handleFormSubmit} className="d-flex flex-column col-12 align-items-center p-4 mb-4">
                 <label className="candy m-2 d-flex flex-column col-5 align-items-center">
                     Tag Name

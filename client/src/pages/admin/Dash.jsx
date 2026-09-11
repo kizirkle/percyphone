@@ -34,7 +34,7 @@ function Dash() {
     }
 
     return(
-        <main className="d-flex flex-column align-items-center justify-content-around candy">
+        <main className="d-flex flex-column align-items-center justify-content-between candy">
             <h1>Welcome, Percy!</h1>
             
             <section className="d-flex col-12 justify-content-between mt-2 flex-wrap">
@@ -56,7 +56,7 @@ function Dash() {
                     </a>
                 </div>
                 {/* Tab Section */}
-                <div className="col-lg-9 col-12">
+                <div className="col-lg-9 d-flex justify-content-center col-12" style={{'min-height': '50vh'}}>
                     {tab_data.find((tab) => tab.id === activeTab)?.content}
                 </div>
                 

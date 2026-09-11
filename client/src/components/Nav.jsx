@@ -1,32 +1,26 @@
 //imports
 import Drop from "./Dropdown";
+import { useState, useEffect } from 'react';
+import GetSections from '../components/admin/GetSections';
+
 // react
 function Nav() {
+    const sectionArray = GetSections();
 
+    useEffect(() => {
+
+    });
+    
     return(
             <nav className="nav candy justify-content-around d-flex flex-wrap col-12 p-5">
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop
                     dropTitle="Clowns"
                     dropArray={
-                        [
-                            {
-                                title: "New Arrivals!",
-                                link: "/clowns#new"
-                            },
-                            {
-                                title: "Keychains",
-                                link: "/clowns#keychains"
-                            },
-                            {
-                                title: "Charms",
-                                link: "/clowns#charms"
-                            },
-                            {
-                                title: "Badges",
-                                link: "/clowns#badges"
-                            },
-                        ]
+                        sectionArray.map((section) => ({
+                            title: section.tagName,
+                            link: `/clowns#${section.id}`
+                        }))
                     }
                     />
                 </div>
@@ -35,24 +29,10 @@ function Nav() {
                     <Drop
                     dropTitle="Items"
                     dropArray={
-                        [
-                            {
-                                title: "New Arrivals!",
-                                link: "/shop#new"
-                            },
-                            {
-                                title: "Keychains",
-                                link: "/shop#keychains"
-                            },
-                            {
-                                title: "Charms",
-                                link: "/shop#charms"
-                            },
-                            {
-                                title: "Badges",
-                                link: "/shop#badges"
-                            },
-                        ]
+                        sectionArray.map((section) => ({
+                            title: section.tagName,
+                            link: `/shop#${section.id}`
+                        }))
                     }/>
                 </div>
                 <div className="col-12 col-md-4 col-lg-1 my-1">

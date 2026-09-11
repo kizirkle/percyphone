@@ -10,13 +10,7 @@ function Product({name, price, image, description, id, }) {
 
     //useEffect refreshes Snipcart when the component is mounted to make sure
     //that the price of snipcart gets saved when adding to cart.
-  useEffect(() => {
-    // Check if the Snipcart API is globally available on the window object
-    if (window.Snipcart) {
-      // Force Snipcart to re-scan the DOM for new .snipcart-add-item buttons
-      window.Snipcart.refresh();
-    }
-  }, []);
+  
 
     //returns the Product component.
     //used in: home, clowns, ProductSection

@@ -24,7 +24,7 @@ function TagList({onSelectTag, refresh}) {
     }, [refresh]);
 
   return (
-    <div className="col-lg-5 col-12 d-flex flex-wrap justify-content-center">
+    <div className="col-lg-5 col-12 d-flex flex-wrap justify-content-center align-items-center">
       {tags.map(tag => (
         <div className="candy btn m-1 col-5" 
         key={tag.id}

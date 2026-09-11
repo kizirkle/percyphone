@@ -35,15 +35,15 @@ function DeleteTag(){
         } catch (error) {
             setMessage("Failed to Delete Tag.")
         }
-        
+
         setRefresh(prev => prev + 1);
         setMessage("Successfully deleted!")
     }
     return(
         <section className="col-12 d-flex justify-content-between flex-wrap">
             <TagList onSelectTag={onSelectTag} refresh={refresh}/>
-            <div className="col-lg-7 col-12">
-                <p>Delete {}?</p>
+            <div className="col-lg-7 col-12 d-flex flex-column align-items-center justify-content-center">
+                {selectedTag && <p className="p-3">Delete {selectedTag.tagName}?</p> }
                 <button className="btn"
                 onClick={handleDelete}
                 disabled={!selectedTag}>Delete</button>

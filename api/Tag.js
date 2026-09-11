@@ -51,8 +51,33 @@ router.put('/', (req, res) => {
   res.send('edit a tag');
 });
 
-router.delete('/', (req, res) => {
-  res.send('delete a tag');
+router.delete('/', async (req, res) => {
+  try{
+    console.log("Made it to the server");
+    var{id} = req.body;
+    console.log(id);
+    const {data, error} = await supabase
+    .schema('percyphone')
+    .from('tag')
+    .delete()
+    .eq("id",id)
+    .select();
+
+    if (error) {
+      console.log(error);
+      throw error;
+    }
+
+    console.log("Deleted:", data);
+
+    return res.status(200).json({
+      message: "Tag deleted successfully",
+      data
+    });
+    
+  }catch(error){
+    res.status(500).json({ error: error.message });
+  }
 });
 
 module.exports = router;

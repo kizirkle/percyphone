@@ -47,8 +47,36 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/', (req, res) => {
-  res.send('edit a tag');
+router.put('/', async (req, res) => {
+  try{
+    console.log("Made it to the server!");
+    var {id, tagName, isSection} = req.body;
+    console.log(id, tagName, isSection);
+    if(!id || !tagName || typeof isSection !== 'boolean'){
+      return res.status(400).json({error: 'you must fill out the form fully.'});
+    }
+
+    const {data, error} = await supabase
+    .schema('percyphone')
+    .from('tag')
+    .upsert({
+      "id": id,
+      "tagName": tagName,
+      "isSection": isSection
+    });
+
+    console.log(data);
+
+    if (error) {
+      console.log(error);
+      throw error;
+    }
+
+    res.status(201).json({ message: 'Success', data });
+  }catch(error){
+    res.status(500).json({ error: error.message });
+  }
+
 });
 
 router.delete('/', async (req, res) => {
@@ -74,7 +102,7 @@ router.delete('/', async (req, res) => {
       message: "Tag deleted successfully",
       data
     });
-    
+
   }catch(error){
     res.status(500).json({ error: error.message });
   }

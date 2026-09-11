@@ -2,6 +2,7 @@ const express = require('express');
 const supabase = require('../db/supabase');
 const router = express.Router();
 
+//get all tags
 router.get('/', async (req, res) => {
   try{
     console.log("reached backend")
@@ -21,6 +22,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//insert new tag
 router.post('/', async (req, res) => {
   try{
     console.log("made it to server");
@@ -47,6 +49,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//edit tag
 router.put('/', async (req, res) => {
   try{
     console.log("Made it to the server!");
@@ -79,6 +82,7 @@ router.put('/', async (req, res) => {
 
 });
 
+//delete tag
 router.delete('/', async (req, res) => {
   try{
     console.log("Made it to the server");
@@ -105,6 +109,37 @@ router.delete('/', async (req, res) => {
 
   }catch(error){
     res.status(500).json({ error: error.message });
+  }
+});
+
+//get all section tags
+router.get('/sections', async (req, res) => {
+  try{
+    console.log("Made it to the server");
+    const {data, error} = await supabase
+    .schema('percyphone')
+    .from('tag')
+    .select()
+    .eq("isSection", true);
+
+    if (error) {
+      console.log(error);
+      throw error;
+    }
+
+    console.log("grabbed", data);
+
+    return res.status(200).json({
+      message: "Tags retrieved successfully",
+      data
+    });
+
+  }catch(error){
+    console.error("ERROR GETTING SECTIONS:", error);
+
+    res.status(500).json({
+        error: error.message
+    });
   }
 });
 

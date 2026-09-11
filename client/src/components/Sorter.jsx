@@ -4,11 +4,11 @@ import ProductSection from "./ProductSection"
 function Sorter({keyword, sectionArray}) {
     const items = sectionArray.map((section) => {
         if(section.id == "new"){
-            return <ProductSection sectionTitle={section.title} newProducts="true" id={section.id} key={section.id} />
+            return <ProductSection sectionTitle={section.tagName} newProducts="true" id={section.id} key={section.id} />
 
         }
         else{
-            return <ProductSection sectionTitle={section.title} id={section.id} key={section.id} />
+            return <ProductSection sectionTitle={section.tagName} id={section.id} key={section.id} />
         }
     })
 

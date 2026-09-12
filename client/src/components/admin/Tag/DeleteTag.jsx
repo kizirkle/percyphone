@@ -28,7 +28,7 @@ function DeleteTag(){
             const data = await response.json();
 
             if(!response.ok){
-                setMessage(data.message || "addition failed");
+                setMessage(data.message || "deletion failed");
                 return;
             }
 

@@ -124,8 +124,29 @@ router.put('/', async (req, res) => {
   }
 });
 
-router.delete('/', (req, res) => {
-  res.send('delete a product');
+router.delete('/', async (req, res) => {
+  try{
+    var{id} = req.body;
+
+    var {data, error} = await supabase
+    .schema('percyphone')
+    .from('product')
+    .delete()
+    .eq('id', id)
+    .select();
+
+    if(error){
+      throw error;
+    }
+
+    return res.status(200).json({
+      message: "Tag deleted successfully",
+      data
+    });
+
+  }catch(error){
+    res.status(500).json({ error: error.message });
+  }
 });
 
 module.exports = router;

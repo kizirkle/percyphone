@@ -56,7 +56,7 @@ function Dash() {
                     </a>
                 </div>
                 {/* Tab Section */}
-                <div className="col-lg-9 d-flex justify-content-center col-12" style={{'min-height': '50vh'}}>
+                <div className="col-lg-9 d-flex justify-content-center col-12" style={{'minHeight': '50vh'}}>
                     {tab_data.find((tab) => tab.id === activeTab)?.content}
                 </div>
                 

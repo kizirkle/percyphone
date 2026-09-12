@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import {useEffect} from 'react';
 
 // react
-function Product({name, price, image, description, id, }) {
+function Product({id, name, description, price, image, stock }) {
 
     //useEffect refreshes Snipcart when the component is mounted to make sure
     //that the price of snipcart gets saved when adding to cart.
@@ -21,7 +21,7 @@ function Product({name, price, image, description, id, }) {
             {/* Product Image */}
             {/* TODO: MAKE PRODUCT LINK */}
             <a href='/product'>
-                <Card.Img className="product-img" variant="top" src={image} />
+                <Card.Img className="product-img" variant="top" src={image || null} />
             </a>
 
             {/* Product Card */}

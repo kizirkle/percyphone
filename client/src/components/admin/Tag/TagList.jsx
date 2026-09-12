@@ -11,6 +11,7 @@ function TagList({onSelectTag, refresh}) {
 
         if (!response.ok) {
         console.log("failed to fetch tags.");
+        return;
         }
 
         const result = await response.json();

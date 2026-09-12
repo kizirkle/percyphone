@@ -93,7 +93,7 @@ body {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 1;
+  z-index: 5;
 }
 
 .nav ul {
@@ -104,6 +104,8 @@ body {
 
 .drop{
   background:var(--dark_base);
+  border:none;
+  z-index:2;
 }
 .dropItem{
   color:var(--text);

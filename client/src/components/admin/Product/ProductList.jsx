@@ -30,15 +30,22 @@ function ProductList({onSelectProduct, refresh}){
     }, [refresh]);
 
     return(
-        <div className="col-4">
-            {products.map((product) => (
-                <div className="candy btn m-1 col-12"
-                key={product.id}
-                onClick={() => onSelectProduct(product)}>
-                    {product.name}
-                </div>
-            ))}
+        <div className="dropdown m-3">
+            <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Choose Product
+            </button>
+            <ul className="dropdown-menu drop">
+                {products.map((product) => (
+                    <li className="" key={product.id}>
+                        <button className="dropdown-item dropItem" 
+                        onClick={() => onSelectProduct(product)}>
+                            {product.name}
+                        </button>
+                    </li>
+                ))}
+            </ul>
         </div>
+        
     )
 }
 //export

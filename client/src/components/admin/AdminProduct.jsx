@@ -28,7 +28,7 @@ function AdminProduct(){
     const [activeTab, setActiveTab] = useState('');
 
     return(
-        <section className="col-12 d-flex flex-column align-items-between">
+        <section className="col-12 d-flex flex-column align-items-center">
             <nav className="d-flex flex-row justify-content-between mx-2 col-11">
                 {productTabData.map((productTab) => (
                     <button key={productTab.id} id={productTab.id} className="btn m-1 col-3"

@@ -3,8 +3,8 @@ import Product from '../../Product';
 function ProductForm({handleFormSubmit, formState, handleChange, message}){
 
     return(
-    <aside className="d-flex flex-row-reverse justify-content-between">
-            <div className=" d-flex align-items-center col-lg-6 col-12">
+    <aside className="d-flex flex-row-reverse flex-wrap justify-content-between">
+            <div className=" d-flex align-items-center justify-content-center col-lg-6 col-12">
                 <Product 
                     name={formState.name}
                     price={formState.price}

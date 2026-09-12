@@ -28,7 +28,7 @@ function AdminTag(){
     const [activeTab, setActiveTab] = useState('');
 
     return(
-        <section className="col-12 d-flex flex-column align-items-center">
+        <section className="col-12 d-flex flex-column align-items-between">
             <nav className="d-flex flex-row justify-content-between mx-2 col-11">
                 {tagTabData.map((tagTab) => (
                     <button key={tagTab.id} id={tagTab.id} className="btn m-1 col-3"

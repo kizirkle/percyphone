@@ -68,7 +68,7 @@ function DeleteProduct() {
                 />
             </div>
             <div className="col-12 d-flex flex-column align-items-center justify-content-center ">
-                {!selectedProduct.image && <p className="p-2">Choose a Tag to delete!</p>}
+                {!selectedProduct.image && <p className="p-2">Choose a Product to delete!</p>}
                 {selectedProduct.image && <p className="p-2">Delete {selectedProduct.name}?</p> }
                 <button
                     className="btn col-lg-4 mb-3"

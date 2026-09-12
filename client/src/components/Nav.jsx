@@ -10,6 +10,20 @@ function Nav() {
     useEffect(() => {
 
     });
+
+    const checkAdmin = () => {
+        if(localStorage.adminId){
+            return({
+                title: 'Return to Admin',
+                link:'/admin/dashboard'
+            })
+        } else{
+            return({
+                title: 'Login',
+                link: '/login'
+            })
+        }
+    }
     
     return(
             <nav className="nav candy justify-content-around d-flex flex-wrap col-12 p-5">
@@ -56,10 +70,7 @@ function Nav() {
                                 title: "events",
                                 link: "/events"
                             },
-                            {
-                                title: "admin",
-                                link: "/login"
-                            },
+                            checkAdmin()
                         ]
                     }
                     />

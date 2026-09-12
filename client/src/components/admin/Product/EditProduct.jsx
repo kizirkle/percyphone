@@ -90,7 +90,7 @@ function EditProduct() {
     }
 
     return(
-        <div className="d-flex justify-content-around col-12">
+        <div className="d-flex justify-content-around col-12 flex-wrap">
             <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
             <ProductForm formState={formState} message={message} handleChange={handleChange} handleFormSubmit={handleFormSubmit}/>
 

@@ -30,9 +30,9 @@ function ProductList({onSelectProduct, refresh}){
     }, [refresh]);
 
     return(
-        <div>
+        <div className="col-4">
             {products.map((product) => (
-                <div className="candy btn m-1 col-5"
+                <div className="candy btn m-1 col-12"
                 key={product.id}
                 onClick={() => onSelectProduct(product)}>
                     {product.name}

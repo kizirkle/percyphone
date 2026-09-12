@@ -66,6 +66,8 @@ body {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+
 }
 
 .btn:hover {
@@ -143,6 +145,12 @@ body {
   width:10rem;
   height:10rem;
   object-fit:cover;
+  border: solid var(--base) 2px;
+  transition: border 0.2s ease-in-out;
+}
+
+.product-img:hover{
+  border: solid var(--main) 2px;
 }
 
 .candy {

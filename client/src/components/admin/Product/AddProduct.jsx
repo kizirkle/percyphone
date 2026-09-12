@@ -1,6 +1,6 @@
 //imports
 import {useState, useEffect} from 'react';
-import Product from '../../Product';
+import TagList from '../Tag/TagList';
 import ProductForm from './ProductForm'
 //react
 function AddProduct() {
@@ -13,6 +13,9 @@ function AddProduct() {
         isClown:false
     });
     var [message, setMessage] = useState("");
+    var [selectedTags, setSelectedTags] = useState([]);
+    var [refresh, setRefresh] = useState("");
+
 
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
@@ -22,6 +25,17 @@ function AddProduct() {
             [name]: type === 'checkbox' ? checked : value
         });
     };
+
+    const onSelectTag = (tag) => {
+
+        setSelectedTags((prev) => {
+            if (prev.includes(tag)) {
+                return prev.filter((selectedTag) => selectedTag !== tag);
+            }
+
+            return [...prev, tag];
+        });
+    }
 
     //when the submit button is submitted, attempt to log in
     const handleFormSubmit = async (event) => {
@@ -38,10 +52,28 @@ function AddProduct() {
             });
 
             const data = await response.json();
-
+            console.log(data)
             if(!response.ok){
                 setMessage(data.error || "addition failed");
                 return;
+            }
+
+            for(let i = 0; i < selectedTags.length; i++){
+                var tagResponse = await fetch('/api/tagged_product', {
+                    method:"POST",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify({
+                        tag_id: selectedTags[i].id,
+                        product_id: data.data.id
+                    })
+                })
+                const tagData = await tagResponse.json();
+                if(!tagResponse.ok){
+                setMessage(tagData.error || "addition failed");
+                return;
+            }
             }
 
         } catch (e) {
@@ -63,7 +95,10 @@ function AddProduct() {
     };
 
     return(
-        <ProductForm handleFormSubmit={handleFormSubmit} formState={formState} handleChange={handleChange} message={message}/>
+        <div className="d-flex justify-content-around align-items-center col-12">
+            <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
+            <ProductForm handleFormSubmit={handleFormSubmit} formState={formState} selectedTags={selectedTags} handleChange={handleChange} message={message}/>
+        </div>
     )
 }
 //export

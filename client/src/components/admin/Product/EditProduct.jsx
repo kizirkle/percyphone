@@ -2,12 +2,13 @@
 import {useState, useEffect} from 'react';
 import ProductForm from './ProductForm';
 import ProductList from './ProductList';
+import TagList from '../Tag/TagList'
 
 //react
 function EditProduct() {
     var [selectedProduct, setSelectedProduct] = useState(null);
     var [refresh, setRefresh] = useState(0);
-
+    var [selectedTags, setSelectedTags] = useState([]);
     var [formState, setFormState] = useState({
         name:'',
         description:'',
@@ -37,6 +38,17 @@ function EditProduct() {
             stock:product.stock,
             isClown:product.isClown
         })
+    }
+
+    const onSelectTag = (tag) => {
+
+        setSelectedTags((prev) => {
+            if (prev.includes(tag)) {
+                return prev.filter((selectedTag) => selectedTag !== tag);
+            }
+
+            return [...prev, tag];
+        });
     }
 
     const handleFormSubmit = async (event) => {
@@ -70,6 +82,24 @@ function EditProduct() {
             setMessage(data.message || 'Failed to edit tag.');
             return;
         }
+
+        for(let i = 0; i < selectedTags.length; i++){
+                var tagResponse = await fetch('/api/tagged_product', {
+                    method:"POST",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify({
+                        tag_id: selectedTags[i].id,
+                        product_id: selectedProduct.id
+                    })
+                })
+                const tagData = await tagResponse.json();
+                if(!tagResponse.ok){
+                setMessage(tagData.error || "addition failed");
+                return;
+            }
+        }
          setMessage('Successfully edited!');
 
          setRefresh(prev => prev + 1);
@@ -91,8 +121,9 @@ function EditProduct() {
 
     return(
         <div className="d-flex justify-content-around col-12 flex-wrap">
+            <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
             <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
-            <ProductForm formState={formState} message={message} handleChange={handleChange} handleFormSubmit={handleFormSubmit}/>
+            <ProductForm formState={formState} selectedTags={selectedTags} message={message} handleChange={handleChange} handleFormSubmit={handleFormSubmit}/>
 
         </div>
     )

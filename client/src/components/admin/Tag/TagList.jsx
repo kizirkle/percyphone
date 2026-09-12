@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function TagList({onSelectTag, refresh}) {
+function TagList({onSelectTag, refresh, isProducts}) {
   const [tags, setTags] = useState([]);
 
     const getTags = async () => {
@@ -11,7 +11,7 @@ function TagList({onSelectTag, refresh}) {
 
         if (!response.ok) {
         console.log("failed to fetch tags.");
-        return;
+        return
         }
 
         const result = await response.json();
@@ -25,14 +25,22 @@ function TagList({onSelectTag, refresh}) {
     }, [refresh]);
 
   return (
-    <div className="col-lg-5 col-12 d-flex flex-wrap justify-content-center align-items-center">
-      {tags.map(tag => (
-        <div className="candy btn m-1 col-5" 
-        key={tag.id}
-        onClick={() => onSelectTag(tag)}
-        >{tag.tagName}</div>
-      ))}
-    </div>
+    <div className="dropdown m-3">
+            <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Choose Tag
+            </button>
+            <ul className="dropdown-menu drop">
+                {tags.map((tag) => (
+                    <li className="" key={tag.id}>
+                        <button className="dropdown-item dropItem" 
+                        onClick={() => onSelectTag(tag)}>
+                            {tag.tagName}
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    
   );
 }
 

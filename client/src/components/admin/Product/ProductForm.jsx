@@ -1,15 +1,24 @@
 import Product from '../../Product';
 
-function ProductForm({handleFormSubmit, formState, handleChange, message}){
+function ProductForm({handleFormSubmit, formState, handleChange, message, selectedTags}){
 
     return(
     <aside className="d-flex flex-row-reverse flex-wrap justify-content-between">
-            <div className=" d-flex align-items-center justify-content-center col-lg-6 col-12">
+            <div className=" d-flex align-items-center flex-column justify-content-center col-lg-6 col-12">
                 <Product 
                     name={formState.name}
                     price={formState.price}
                     image={formState.image}
                 />
+                <p>Selected Tags:</p>
+                <div className="d-flex col-10 mb-2 justify-content-center flex-wrap">
+                    {selectedTags && selectedTags.map((tag) => (
+                        <button className="btn m-1" key={tag.id}>
+                            {tag.tagName}
+                        </button>
+                    ))}
+                </div>
+                
             </div>
             
             <form onSubmit={handleFormSubmit} className="d-flex flex-column col-12 col-lg-6 align-items-center p-4 mb-4">

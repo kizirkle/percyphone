@@ -24,6 +24,30 @@ router.get('/', async(req, res) => {
 
 });
 
+//get specific product
+router.get('/:id', async(req, res) => {
+  try{
+    var { id } = req.params
+    console.log("reached the server...")
+    const {data, error} = await supabase
+    .schema('percyphone')
+    .from('product')
+    .eq("id", id)
+    .select();
+
+    console.log(data);
+
+    if(error){
+      throw error;
+    }
+
+    res.status(201).json({message: 'Success', data});
+  } catch(error){
+    res.status(500).json({error: error.message});
+  }
+
+});
+
 //create new product
 router.post('/', async (req, res) => {
   console.log("attempting...");
@@ -61,8 +85,9 @@ router.post('/', async (req, res) => {
       image,
       stock,
       isClown
-    });
-
+    })
+    .select()
+    .single()
 
 
     //if the database didn't work, throw it

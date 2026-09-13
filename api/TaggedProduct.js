@@ -34,4 +34,102 @@ router.post('/', async(req, res) => {
     }
 })
 
+//return all products by their tag
+router.post('/tag', async (req, res) => {
+    try{
+        console.log(req.body);
+        var {tag_id} = req.body;
+        const {data, error} = await supabase
+        .schema('percyphone')
+        .from('tagged_product')
+        .select("*")
+        .eq("tag_id", tag_id);
+        //if the database didn't work, throw it
+        if (error) {
+        console.log(error);
+        throw error;
+        }
+
+        const productIds = data.map((item) => item.product_id);
+
+        const {data: productData, error: productError} = await supabase
+        .schema('percyphone')
+        .from('product')
+        .select('*')
+        .in("id", productIds)
+
+        if (tagError) {
+        console.log(tagError);
+        throw tagError;
+        }
+        //if not, send the data necessary
+        res.status(201).json({ message: 'Success', tagData });
+
+    } catch(error){
+        console.log(error);
+        res.status(500).json({ error: error.message });
+    }
+})
+//return all tags by a product
+router.post('/product', async (req, res) => {
+    try{
+        console.log(req.body);
+        var {product_id} = req.body;
+        const {data, error} = await supabase
+        .schema('percyphone')
+        .from('tagged_product')
+        .select("*")
+        .eq("product_id", product_id);
+        //if the database didn't work, throw it
+        if (error) {
+        console.log(error);
+        throw error;
+        }
+
+        const tagIds = data.map((item) => item.tag_id);
+
+        const {data: tagData, error: tagError} = await supabase
+        .schema('percyphone')
+        .from('tag')
+        .select('*')
+        .in("id", tagIds)
+
+        if (tagError) {
+        console.log(tagError);
+        throw tagError;
+        }
+        //if not, send the data necessary
+        res.status(201).json({ message: 'Success', tagData });
+
+    } catch(error){
+        console.log(error);
+        res.status(500).json({ error: error.message });
+    }
+})
+
+//delete taggedProduct
+router.delete('/', async (req, res) =>{
+    try{
+        var {product_id, tag_id} = req.body;
+        const {data, error} = await supabase
+        .schema('percyphone')
+        .from('tagged_product')
+        .delete()
+        .eq('tag_id', tag_id)
+        .eq('product_id', product_id)
+        .select();
+
+        if(error){
+        throw error;
+        }
+
+        return res.status(200).json({
+        message: "Tag deleted successfully",
+        data
+        });
+
+    }catch(error){
+        res.status(500).json({ error: error.message });
+    }
+})
 module.exports = router;

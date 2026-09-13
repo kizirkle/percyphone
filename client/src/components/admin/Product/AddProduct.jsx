@@ -50,6 +50,7 @@ function AddProduct() {
                 },
                 body: JSON.stringify(formState)
             });
+            console.log("Product response received:", response.status);
 
             const data = await response.json();
             console.log(data)
@@ -58,6 +59,7 @@ function AddProduct() {
                 return;
             }
 
+            console.log("About to add tags:", selectedTags);
             for(let i = 0; i < selectedTags.length; i++){
                 var tagResponse = await fetch('/api/tagged_product', {
                     method:"POST",
@@ -69,6 +71,7 @@ function AddProduct() {
                         product_id: data.data.id
                     })
                 })
+                console.log("Adding tag:", selectedTags[i]);
                 const tagData = await tagResponse.json();
                 if(!tagResponse.ok){
                 setMessage(tagData.error || "addition failed");

@@ -1,14 +1,13 @@
 //import
 import ProductSection from "./ProductSection"
 //react
-function Sorter({keyword, sectionArray}) {
+function Sorter({isClown, sectionArray}) {
     const items = sectionArray.map((section) => {
-        if(section.id == "new"){
-            return <ProductSection sectionTitle={section.tagName} newProducts="true" id={section.id} key={section.id} />
-
+        if(isClown){
+            return <ProductSection isClown={true} sectionTitle={section.tagName} newProducts="true" id={section.id} key={section.id} />
         }
         else{
-            return <ProductSection sectionTitle={section.tagName} id={section.id} key={section.id} />
+            return <ProductSection isClown={false} sectionTitle={section.tagName} id={section.id} key={section.id} />
         }
     })
 

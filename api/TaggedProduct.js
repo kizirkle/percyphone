@@ -38,7 +38,7 @@ router.post('/', async(req, res) => {
 router.post('/tag', async (req, res) => {
     try{
         console.log(req.body);
-        var {tag_id} = req.body;
+        var {tag_id, isClown} = req.body;
         const {data, error} = await supabase
         .schema('percyphone')
         .from('tagged_product')
@@ -51,20 +51,39 @@ router.post('/tag', async (req, res) => {
         }
 
         const productIds = data.map((item) => item.product_id);
+        if(isClown){
+            const {data: productData, error: productError} = await supabase
+            .schema('percyphone')
+            .from('product')
+            .select('*')
+            .eq("isClown", true)
+            .in("id", productIds);
+            
+            if (productError) {
+                console.log(productError);
+                throw productError;
+            }
+            //if not, send the data necessary
+            res.status(201).json({ message: 'Success', productData });
 
-        const {data: productData, error: productError} = await supabase
-        .schema('percyphone')
-        .from('product')
-        .select('*')
-        .in("id", productIds)
+        } else{
+            const {data: productData, error: productError} = await supabase
+            .schema('percyphone')
+            .from('product')
+            .select('*')
+            .in("id", productIds)
 
-        if (tagError) {
-        console.log(tagError);
-        throw tagError;
+            if (productError) {
+                console.log(productError);
+                throw productError;
+            }
+            //if not, send the data necessary
+            res.status(201).json({ message: 'Success', productData });
+
         }
-        //if not, send the data necessary
-        res.status(201).json({ message: 'Success', tagData });
+        
 
+        
     } catch(error){
         console.log(error);
         res.status(500).json({ error: error.message });

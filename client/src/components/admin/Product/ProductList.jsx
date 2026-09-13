@@ -30,8 +30,8 @@ function ProductList({onSelectProduct, refresh}){
     }, [refresh]);
 
     return(
-        <div className="dropdown m-3">
-            <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div className="dropdown m-3 col-12">
+            <button className="btn col-12 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Choose Product
             </button>
             <ul className="dropdown-menu drop">

@@ -41,7 +41,9 @@ function DeleteTag(){
     }
     return(
         <section className="col-12 d-flex justify-content-between flex-wrap">
-            <TagList onSelectTag={onSelectTag} refresh={refresh}/>
+            <div className="col-lg-5 col-10 d-flex justify-content-center">
+                <TagList onSelectTag={onSelectTag} refresh={refresh}/>
+            </div>
             <div className="col-lg-7 col-12 d-flex flex-column align-items-center justify-content-center">
                 {!selectedTag && <p className="p-3">Choose a Tag to delete!</p>}
                 {selectedTag && <p className="p-3">Delete {selectedTag.tagName}?</p> }

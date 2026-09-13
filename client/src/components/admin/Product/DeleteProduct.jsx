@@ -58,7 +58,10 @@ function DeleteProduct() {
     return(
         <div className="d-flex flex-column align-items-center col-12">
             <div className="d-flex col-12 justify-content-around">
-                <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
+                <div className="col-lg-5 col-10 d-flex align-items-center justify-content-center">
+                    <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
+
+                </div>
                 <Product 
                 name={selectedProduct.name || ''}
                 description={selectedProduct.description || ''}

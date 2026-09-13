@@ -8,7 +8,7 @@ function Clowns() {
 
     return(
         <main>
-            <Sorter keyword="clowns"
+            <Sorter isClown={true}
             sectionArray={sectionArray}
             />
         </main>

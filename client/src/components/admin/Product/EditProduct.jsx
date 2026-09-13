@@ -199,8 +199,11 @@ function EditProduct() {
 
     return(
         <div className="d-flex justify-content-around col-12 flex-wrap">
-            <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
-            <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
+            <div className=" d-flex flex-column justify-content-around align-items-center col-lg-3 col-12">
+                <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
+                <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
+            </div>
+            
             <ProductForm formState={formState} onSelectTag={onSelectTag} selectedTags={selectedTags} message={message} handleChange={handleChange} handleFormSubmit={handleFormSubmit}/>
 
         </div>

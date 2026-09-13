@@ -98,8 +98,10 @@ function AddProduct() {
     };
 
     return(
-        <div className="d-flex justify-content-around align-items-center col-12">
-            <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
+        <div className="d-flex justify-content-around align-items-center col-12 flex-wrap">
+            <div className="col-lg-5 col-10 d-flex justify-content-center">
+                <TagList onSelectTag={onSelectTag} refresh={refresh}/>
+            </div>
             <ProductForm handleFormSubmit={handleFormSubmit} formState={formState} selectedTags={selectedTags} handleChange={handleChange} message={message}/>
         </div>
     )

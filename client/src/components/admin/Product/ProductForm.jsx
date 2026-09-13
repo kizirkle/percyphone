@@ -1,6 +1,6 @@
 import Product from '../../Product';
 
-function ProductForm({handleFormSubmit, formState, handleChange, message, selectedTags}){
+function ProductForm({handleFormSubmit, formState, handleChange, message, selectedTags, onSelectTag}){
 
     return(
     <aside className="d-flex flex-row-reverse flex-wrap justify-content-between">
@@ -13,7 +13,8 @@ function ProductForm({handleFormSubmit, formState, handleChange, message, select
                 <p>Selected Tags:</p>
                 <div className="d-flex col-10 mb-2 justify-content-center flex-wrap">
                     {selectedTags && selectedTags.map((tag) => (
-                        <button className="btn m-1" key={tag.id}>
+                        <button className="btn m-1" key={tag.id}
+                        onClick={() => onSelectTag(tag)}>
                             {tag.tagName}
                         </button>
                     ))}

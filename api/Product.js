@@ -149,6 +149,7 @@ router.put('/', async (req, res) => {
   }
 });
 
+//delete product
 router.delete('/', async (req, res) => {
   try{
     var{id} = req.body;

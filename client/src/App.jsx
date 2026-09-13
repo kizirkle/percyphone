@@ -11,6 +11,7 @@ import Clowns from './pages/navigation/Clowns'
 import Events from './pages/navigation/Events'
 import Login from './pages/admin/Login'
 import Shop from './pages/navigation/Shop'
+import ProductPage from './pages/navigation/ProductPage'
 
 //components
 import Nav from './components/Nav'
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/shop",
     element: <Shop />,
+  },
+  {
+    path: "/product/:id",
+    element: <ProductPage/>
   }
 ])
 function App() {

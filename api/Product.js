@@ -28,12 +28,13 @@ router.get('/', async(req, res) => {
 router.get('/:id', async(req, res) => {
   try{
     var { id } = req.params
-    console.log("reached the server...")
+    console.log("reached the server to get specific product...")
     const {data, error} = await supabase
     .schema('percyphone')
     .from('product')
+    .select()
     .eq("id", id)
-    .select();
+    .single();
 
     console.log(data);
 
@@ -60,7 +61,8 @@ router.post('/', async (req, res) => {
       price,
       image,
       stock,
-      isClown
+      isClown,
+      images
     } = req.body;
 
     //make sure that price and stock return as numbers
@@ -84,7 +86,8 @@ router.post('/', async (req, res) => {
       price,
       image,
       stock,
-      isClown
+      isClown,
+      images
     })
     .select()
     .single()
@@ -114,7 +117,8 @@ router.put('/', async (req, res) => {
       price,
       image,
       stock,
-      isClown
+      isClown,
+      images
     } = req.body;
 
     //make sure that price and stock return as numbers
@@ -135,7 +139,8 @@ router.put('/', async (req, res) => {
       'price':price,
       'image': image,
       'stock': stock,
-      'isClown': isClown
+      'isClown': isClown,
+      'images': images
     });
 
     if (error) {
@@ -166,7 +171,7 @@ router.delete('/', async (req, res) => {
     }
 
     return res.status(200).json({
-      message: "Tag deleted successfully",
+      message: "Product deleted successfully",
       data
     });
 

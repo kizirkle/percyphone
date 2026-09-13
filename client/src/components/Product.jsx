@@ -20,7 +20,7 @@ function Product({id, name, description, price, image, stock }) {
 
             {/* Product Image */}
             {/* TODO: MAKE PRODUCT LINK */}
-            <a href='/product'>
+            <a href={`/product/${id}`}>
                 <Card.Img className="product-img" variant="top" src={image || null} />
             </a>
 

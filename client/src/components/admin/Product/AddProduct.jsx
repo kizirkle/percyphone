@@ -2,6 +2,7 @@
 import {useState, useEffect} from 'react';
 import TagList from '../Tag/TagList';
 import ProductForm from './ProductForm'
+import ProductImages from './ProductImages';
 //react
 function AddProduct() {
     var [formState, setFormState] = useState({
@@ -12,6 +13,7 @@ function AddProduct() {
         stock:0,
         isClown:false
     });
+    var [images, setImages] = useState([]);
     var [message, setMessage] = useState("");
     var [selectedTags, setSelectedTags] = useState([]);
     var [refresh, setRefresh] = useState("");
@@ -48,7 +50,10 @@ function AddProduct() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formState)
+                body: JSON.stringify({
+                    ...formState,
+                    images
+                })
             });
             console.log("Product response received:", response.status);
 
@@ -99,8 +104,9 @@ function AddProduct() {
 
     return(
         <div className="d-flex justify-content-around align-items-center col-12 flex-wrap">
-            <div className="col-lg-5 col-10 d-flex justify-content-center">
+            <div className="col-lg-5 col-10 d-flex flex-wrap justify-content-center">
                 <TagList onSelectTag={onSelectTag} refresh={refresh}/>
+                <ProductImages setImages={setImages} images={images} originalImageNum={0}/>
             </div>
             <ProductForm handleFormSubmit={handleFormSubmit} formState={formState} selectedTags={selectedTags} handleChange={handleChange} message={message}/>
         </div>

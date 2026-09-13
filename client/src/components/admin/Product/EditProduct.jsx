@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import ProductForm from './ProductForm';
 import ProductList from './ProductList';
 import TagList from '../Tag/TagList'
+import ProductImages from './ProductImages'
 
 //react
 function EditProduct() {
@@ -11,6 +12,7 @@ function EditProduct() {
     var [refresh, setRefresh] = useState(0);
     var [selectedTags, setSelectedTags] = useState([]);
     var [originalTags, setOriginalTags] = useState([]);
+    var [images, setImages] = useState([]);
     var [formState, setFormState] = useState({
         name:'',
         description:'',
@@ -20,6 +22,7 @@ function EditProduct() {
         isClown:false
     });
     var [message, setMessage] = useState("");
+    var [originalImageNum, setOriginalImageNum] = useState(0);
 
     //when a change happens to the edit form, change the formState
     const handleChange = (event) => {
@@ -47,6 +50,8 @@ function EditProduct() {
             stock:product.stock,
             isClown:product.isClown
         })
+        setImages(product.images);
+        setOriginalImageNum(product.images.length);
         getTagsFromProduct(product.id);
     }
 
@@ -106,11 +111,7 @@ function EditProduct() {
         const tagsToDelete = originalTags.filter(
             original => !selectedTags.some(tag => tag.id === original.id)
         );
-        console.log("Original:", originalTags);
-        console.log("Selected:", selectedTags);
-        console.log("To Add:", tagsToAdd);
-        console.log("To Delete:", tagsToDelete);
-
+        
        //update the database with the necessary fetch requests.
        try{
         //update the product itself
@@ -126,7 +127,8 @@ function EditProduct() {
                     price: formState.price,
                     image: formState.image,
                     stock: formState.stock,
-                    isClown: formState.isClown
+                    isClown: formState.isClown,
+                    images: images
             })
         });
         //product data, and if product has no data, return.
@@ -189,7 +191,8 @@ function EditProduct() {
             price: formState.price,
             image: formState.image,
             stock: formState.stock,
-            isClown: formState.isClown
+            isClown: formState.isClown,
+            images: images
          })
        } catch(error){
         console.log(error);
@@ -202,6 +205,7 @@ function EditProduct() {
             <div className=" d-flex flex-column justify-content-around align-items-center col-lg-3 col-12">
                 <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
                 <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
+                <ProductImages images={images} refresh={refresh} setImages={setImages} originalImageNum={originalImageNum}/>
             </div>
             
             <ProductForm formState={formState} onSelectTag={onSelectTag} selectedTags={selectedTags} message={message} handleChange={handleChange} handleFormSubmit={handleFormSubmit}/>

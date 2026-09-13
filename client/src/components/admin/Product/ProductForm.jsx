@@ -45,12 +45,13 @@ function ProductForm({handleFormSubmit, formState, handleChange, message, select
                     onChange={handleChange}/>
                 </div>
                 <div className="d-flex flex-column m-1 justify-content-center">
-                    <label>Product Image Link</label>
+                    <label>Product Thumbnail Link</label>
                     <input type="text"
                     name="image"
                     value={formState.image}
                     onChange={handleChange}/>
                 </div>
+                
                 <div className="d-flex flex-column m-1 justify-content-center">
                     <label>Product's Initial Stock</label>
                     <input type="integer"

@@ -1,7 +1,6 @@
 //imports
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 //react
 function ProductPage() {
@@ -25,6 +24,7 @@ function ProductPage() {
             return;
         }
         setProduct(data.data);
+        setFocalImage(data.data.image);
     }
 
 

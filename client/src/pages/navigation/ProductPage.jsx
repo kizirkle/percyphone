@@ -44,6 +44,9 @@ function ProductPage() {
                     {/* Add images As a column of previews*/}
                     <div className="d-flex flex-wrap">
                         <div className="d-flex flex-column">
+                            <div>
+                                <img value={product.image} onClick={() => (handleImageChange(product.image))} className="image-preview" src={product.image} />
+                            </div>
                             {product.images.map((image, index) => (
                                 <div key={index}>
                                     <img value={image} onClick={() => (handleImageChange(image))} className="image-preview" src={image} />

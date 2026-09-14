@@ -1,22 +1,32 @@
+// *****THIS CONTROLS ALL PRODUCTS.*****
+// PRODUCTS CAN BE CREATED, EDITED, AND DELETED
+
+// *****WHAT CAN BE REQUESTED:*****
+// ALL PRODUCTS, 
+// PRODUCTS LESS THAN A MONTH OLD, 
+// OR ONE SINGLE PRODUCT
+
+// imports
 const express = require('express');
 const router = express.Router();
 const supabase = require('../db/supabase');
 
-//get all products
+// GET all products
+// returns an array of objects
 router.get('/', async(req, res) => {
   try{
-    console.log("reached the server...")
+    //attempt to query supabase
     const {data, error} = await supabase
     .schema('percyphone')
     .from('product')
     .select('*');
 
-    console.log(data);
-
+    //if attempt failed, return why it failed.
     if(error){
       throw error;
     }
 
+    //if attempt succeeds, return the data and a message.
     res.status(201).json({message: 'Success', data});
   } catch(error){
     res.status(500).json({error: error.message});
@@ -24,35 +34,39 @@ router.get('/', async(req, res) => {
 
 });
 
-//get products by date less than a month
+// GET new products
+// returns products less than one month old.
 router.get('/new', async (req, res) => {
-
+  //create a Date() object for one month ago. 
   const oneMonthAgo = new Date();
   oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
 
   try{
-    console.log("reached the server to get date less than a month...");
+    //attempt to query supabase
     const {data, error} = await supabase
     .schema('percyphone')
     .from('product')
     .select('*')
     .gte('created_at', oneMonthAgo.toISOString());
 
+    //if query failed, return why it failed
     if(error){
       throw error;
     }
-
+    //if query succeeds, return data
     res.status(201).json({message: 'Success', data});
   }catch(error){
     res.status(500).json({error: error.message});
   }
 })
 
-//get specific product
+// GET specific product by id
+// returns one product with a matching id to the URL.
 router.get('/:id', async(req, res) => {
   try{
+    //takes the id from the parameter of the url.
     var { id } = req.params
-    console.log("reached the server to get specific product...")
+    //attempt to query supabase
     const {data, error} = await supabase
     .schema('percyphone')
     .from('product')
@@ -60,12 +74,12 @@ router.get('/:id', async(req, res) => {
     .eq("id", id)
     .single();
 
-    console.log(data);
-
+    //if query failed, return why
     if(error){
       throw error;
     }
 
+    //if query succeeded, return data
     res.status(201).json({message: 'Success', data});
   } catch(error){
     res.status(500).json({error: error.message});
@@ -73,7 +87,10 @@ router.get('/:id', async(req, res) => {
 
 });
 
-//create new product
+// CREATE new product
+// accepts a name, description, price, thumbnail image,
+// stock, isClown, and an array of images.
+// returns a created product.
 router.post('/', async (req, res) => {
   console.log("attempting...");
   try{
@@ -131,7 +148,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-//edit product
+// EDIT product
+// accepts an id, name, description, price, thumbnail image,
+// stock, isClown, and an array of images.
+// returns an edited product.
 router.put('/', async (req, res) => {
   try{
     var{

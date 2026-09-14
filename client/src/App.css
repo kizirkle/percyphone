@@ -159,3 +159,25 @@ body {
   font-style: normal;
 }
 
+/* Product Page Styles*/
+
+.image-preview{
+  border-radius:5px;
+  width:5rem;
+  height:5rem;
+  object-fit:cover;
+  border: solid var(--base) 2px;
+  transition: border 0.2s ease-in-out;
+  opacity: 0.5
+}
+
+.image-preview:hover{
+  border: solid var(--main) 2px;
+  opacity: 1;
+}
+
+.focal-image {
+  max-width: 50vw;
+  max-height: 50vh;
+
+}

@@ -1,5 +1,3 @@
-import {useState, useEffect} from 'react';
-
 function ProductImages({images, setImages}){
 
     const handleImageCount = (event) => {

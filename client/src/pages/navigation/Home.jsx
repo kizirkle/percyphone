@@ -8,7 +8,7 @@ function Home() {
     return(
             <main className="candy">
                 <Banner/>
-                <ProductSection sectionTitle="New Arrivals!"/>
+                <ProductSection newProducts={true} sectionTitle="New Arrivals!"/>
                 <ProductSection sectionTitle="Hot Items!"/>
             </main>
     )

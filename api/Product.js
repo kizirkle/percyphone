@@ -24,6 +24,30 @@ router.get('/', async(req, res) => {
 
 });
 
+//get products by date less than a month
+router.get('/new', async (req, res) => {
+
+  const oneMonthAgo = new Date();
+  oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+  try{
+    console.log("reached the server to get date less than a month...");
+    const {data, error} = await supabase
+    .schema('percyphone')
+    .from('product')
+    .select('*')
+    .gte('created_at', oneMonthAgo.toISOString());
+
+    if(error){
+      throw error;
+    }
+
+    res.status(201).json({message: 'Success', data});
+  }catch(error){
+    res.status(500).json({error: error.message});
+  }
+})
+
 //get specific product
 router.get('/:id', async(req, res) => {
   try{

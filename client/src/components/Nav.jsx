@@ -5,7 +5,8 @@ import GetSections from '../components/admin/GetSections';
 
 // react
 function Nav() {
-    const sectionArray = GetSections();
+    const sectionArray = GetSections({isClown:false});
+    const clownArray = GetSections({isClown:true});
 
     useEffect(() => {
 
@@ -31,7 +32,7 @@ function Nav() {
                     <Drop
                     dropTitle="Clowns"
                     dropArray={
-                        sectionArray.map((section) => ({
+                        clownArray.map((section) => ({
                             title: section.tagName,
                             link: `/clowns#${section.id}`
                         }))

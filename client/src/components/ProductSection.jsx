@@ -11,6 +11,7 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
     //if productsTag is not provided, display all products.
     const getProducts = async () => {
         let response;
+        console.log("trying to get products")
         if(newProducts == true){
             response = await fetch('/api/product/new', {
                 method:'GET',
@@ -21,7 +22,7 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
                 return;
             }
             const result = await response.json();
-
+            console.log(result.data)
             setProducts(result.data);
 
         } else if (newProducts == false){

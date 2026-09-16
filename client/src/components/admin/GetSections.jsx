@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 
-
-function GetSections() {
-
-    const [sectionArray, setSectionArray] = useState([]);
-
+function GetSections({ isClown }) {
+    const [sections, setSections] = useState([]);
 
     useEffect(() => {
         const getSections = async () => {
             try {
                 console.log("GETTING SECTIONS");
+
                 const response = await fetch('/api/tag/sections', {
                     method: 'GET',
                     headers: {
@@ -18,13 +16,15 @@ function GetSections() {
                 });
 
                 const result = await response.json();
-                console.log(result.data)
+
                 if (!response.ok) {
                     console.log(result.message || 'Failed to get sections');
                     return;
                 }
 
-                setSectionArray(result.data);
+                console.log(result.data);
+
+                setSections(result.data);
 
             } catch (error) {
                 console.log(error.message);
@@ -34,7 +34,11 @@ function GetSections() {
         getSections();
     }, []);
 
-    return sectionArray;
+    if (isClown) {
+        return sections.filter(section => section.isClown_num > 0);
+    }
+
+    return sections.filter(section => section.product_num > 0);
 }
 
 export default GetSections;

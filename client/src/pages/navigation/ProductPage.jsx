@@ -36,9 +36,9 @@ function ProductPage() {
     }, [])
 
     return(
-        <div>
+        <div className="d-flex justify-content-center align-items-center">
             {product && (
-                <div className="d-flex flex-row flex-wrap justify-content-between col-12">
+                <div className="d-flex flex-row m-2 p-3 flex-wrap justify-content-between col-11">
                     
                     {/* Add images As a column of previews*/}
                     <div className="d-flex flex-wrap">
@@ -58,14 +58,18 @@ function ProductPage() {
                             <div>
                                 <i class="fa-solid fa-circle-arrow-left"></i>
                             </div>
-                            <img className="focal-image" src={focalImage} />
+                            <div>
+                                <img className="focal-image col-10" src={focalImage} />
+                            </div>
+                            
                             <div>
                                 <i class="fa-solid fa-rotate-180 fa-circle-arrow-left"></i>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p>{product.price}</p>
+                    <div className="candy">
+                        <p>{product.name}</p>
+                        <p>price: £{product.price}</p>
                         <p>{product.stock}</p>
                         <p>{product.description}</p>
 

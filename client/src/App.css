@@ -142,7 +142,7 @@ body {
 
 .carousel-image{
   width:100%;
-  height:47vh;
+  height:45vh;
 
 }
 
@@ -155,7 +155,7 @@ body {
 }
 
 .carousel-header{
-  height:300px;
+  height:45vh;
   background: linear-gradient(to right, var(--base), var(--mainsoft))
 }
 /* Product Styles */

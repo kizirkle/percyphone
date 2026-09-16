@@ -156,7 +156,6 @@ body {
 
 .carousel-header{
   height:45vh;
-  background: linear-gradient(to right, var(--base), var(--mainsoft))
 }
 /* Product Styles */
 .product {

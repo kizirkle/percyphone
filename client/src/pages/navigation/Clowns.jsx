@@ -4,7 +4,7 @@ import GetSections from '../../components/admin/GetSections'
 //react
 function Clowns() {
 
-    const sectionArray = GetSections();
+    const sectionArray = GetSections({isClown : true});
 
     return(
         <main>

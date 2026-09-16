@@ -4,7 +4,7 @@ import GetSections from '../../components/admin/GetSections'
 //react
 function Shop() {
     
-    const sectionArray = GetSections();
+    const sectionArray = GetSections({isClown : false});
 
     return(
         <main>

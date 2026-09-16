@@ -73,7 +73,8 @@ function AddProduct() {
                     },
                     body:JSON.stringify({
                         tag_id: selectedTags[i].id,
-                        product_id: data.data.id
+                        product_id: data.data.id,
+                        isClown: data.data.isClown
                     })
                 })
                 console.log("Adding tag:", selectedTags[i]);

@@ -21,7 +21,7 @@ function Home() {
                     </div>
                     <div className="col-12 col-lg-6 carousel-header d-flex align-items-center justify-content-center">
                         <h2>
-                            Creating Cute ( And Silly ) Things!
+                            creating cute ( and silly ) things!
                         </h2>
                     </div>
                 </div>

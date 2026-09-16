@@ -16,17 +16,20 @@ function Product({id, name, description, price, image, stock }) {
     //used in: home, clowns, ProductSection
     return (
         //bootstrap card
+        <a href={`/product/${id}`} className="text-decoration-none">
+
+        
         <Card className="product">
 
             {/* Product Image */}
             {/* TODO: MAKE PRODUCT LINK */}
-            <a href={`/product/${id}`}>
+            
                 <Card.Img className="product-img" variant="top" src={image || null} />
-            </a>
+            
 
             {/* Product Card */}
             <Card.Body className="justify-content-center d-flex flex-column">
-                <Card.Title className="text-center my-0">{name}</Card.Title>
+                <Card.Title className="text-center my-0 text-decoration-none">{name}</Card.Title>
                 <Card.Text className="text-center my-0">
                 £{price}
                 </Card.Text>
@@ -43,6 +46,7 @@ function Product({id, name, description, price, image, stock }) {
                 </Button>
             </Card.Body>
         </Card>
+        </a>
   );
 }
 

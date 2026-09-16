@@ -26,7 +26,7 @@ function Nav() {
     }
     
     return(
-            <nav className="nav candy justify-content-around d-flex flex-wrap col-12 p-5">
+            <nav className="nav candy justify-content-around align-items-center d-flex flex-wrap col-12 p-3">
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop
                     dropTitle="Clowns"
@@ -48,6 +48,9 @@ function Nav() {
                             link: `/shop#${section.id}`
                         }))
                     }/>
+                </div>
+                <div className="logo">
+
                 </div>
                 <div className="col-12 col-md-4 col-lg-1 my-1">
                     <Drop 

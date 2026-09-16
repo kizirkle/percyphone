@@ -37,7 +37,6 @@ router.post('/', async(req, res) => {
 //return all products by their tag
 router.post('/tag', async (req, res) => {
     try{
-        console.log(req.body);
         var {tag_id, isClown} = req.body;
         const {data, error} = await supabase
         .schema('percyphone')
@@ -71,6 +70,7 @@ router.post('/tag', async (req, res) => {
             .schema('percyphone')
             .from('product')
             .select('*')
+            .eq("isClown", false)
             .in("id", productIds)
 
             if (productError) {
@@ -92,7 +92,6 @@ router.post('/tag', async (req, res) => {
 //return all tags by a product
 router.post('/product', async (req, res) => {
     try{
-        console.log(req.body);
         var {product_id} = req.body;
         const {data, error} = await supabase
         .schema('percyphone')

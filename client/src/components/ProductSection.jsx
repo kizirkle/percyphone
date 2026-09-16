@@ -16,8 +16,6 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
                 method:'GET',
             })
             
-            console.log(response)
-
             if(!response.ok){
                 console.log("failed to fetch products.");
                 return;
@@ -26,7 +24,7 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
 
             setProducts(result.data);
 
-        } else{
+        } else if (newProducts == false){
             response = await fetch('/api/tagged_product/tag', {
                 method:'POST',
                 headers: {'Content-Type': 'application/json'},

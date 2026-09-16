@@ -9,7 +9,6 @@ function ProductPage() {
     const { id } = useParams();
 
     const getProduct = async () => {
-        console.log(id, "going to grab specific product...");
         const response = await fetch(`/api/product/${id}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
@@ -39,8 +38,8 @@ function ProductPage() {
     return(
         <div>
             {product && (
-                <div>
-                    <h1>{product.name}</h1>
+                <div className="d-flex flex-row flex-wrap justify-content-between col-12">
+                    
                     {/* Add images As a column of previews*/}
                     <div className="d-flex flex-wrap">
                         <div className="d-flex flex-column">
@@ -55,9 +54,21 @@ function ProductPage() {
                         </div>
                         
                         {/* WHEN I click on image, it gets pulled up as the main image */}
-                        <div>
+                        <div className="d-flex align-items-center">
+                            <div>
+                                <i class="fa-solid fa-circle-arrow-left"></i>
+                            </div>
                             <img className="focal-image" src={focalImage} />
+                            <div>
+                                <i class="fa-solid fa-rotate-180 fa-circle-arrow-left"></i>
+                            </div>
                         </div>
+                    </div>
+                    <div>
+                        <p>{product.price}</p>
+                        <p>{product.stock}</p>
+                        <p>{product.description}</p>
+
                     </div>
                     
                     {/* To the side, placed beneath the images on mobile, will be the name, price, and add to cart button. 

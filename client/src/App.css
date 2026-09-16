@@ -58,6 +58,15 @@ body {
   color: var(--text);
 }
 
+.logo{
+  background: url(/wip_logo.png);
+  min-height:150px;
+  min-width:250px;
+  background-position: center;
+  background-size: contain;
+  background-repeat:no-repeat;
+
+}
 
 /* buttons */
 .btn {
@@ -122,22 +131,35 @@ body {
   color:var(--text);
 }
 
-.banner-img{
-  width:100%;
+.carousel{
+  color: var(--main);
+}
 
+.carousel-image{
+  width:640px;
+  height:300px;
+
+}
+
+.carousel-header{
+  height:300px;
 }
 /* Product Styles */
 .product {
   background-color: var(--base);
   color: var(--text);
-  border: none;
-  padding: 12px;
+  border: dashed var(--base) 2px;
+  padding: 5px;
   border-radius: 5px;
-  margin: 1rem;
-  width: 12rem;
+  font-size:12px;
+  margin: 3px;
+  width: 11rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  transition: border 0.2s ease-in-out;
+
 }
 
 .product-img {
@@ -145,12 +167,10 @@ body {
   width:10rem;
   height:10rem;
   object-fit:cover;
-  border: solid var(--base) 2px;
-  transition: border 0.2s ease-in-out;
 }
 
-.product-img:hover{
-  border: solid var(--main) 2px;
+.product:hover{
+  border: dashed var(--main) 2px;
 }
 
 .candy {

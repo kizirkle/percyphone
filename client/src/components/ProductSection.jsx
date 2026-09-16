@@ -53,7 +53,7 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
     }, [newProducts, id, isClown])
     return(
         <div>
-            <h2 id={id} className="title candy m-2">
+            <h2 id={id} className="title candy m-2 py-3">
                 {sectionTitle}
             </h2>
             {/* Place fetched products here */}

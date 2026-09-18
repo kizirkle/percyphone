@@ -41,7 +41,7 @@ function ProductPage() {
                 <div className="d-flex flex-row m-2 p-3 flex-wrap justify-content-between col-11">
                     
                     {/* Add images As a column of previews*/}
-                    <div className="d-flex flex-wrap">
+                    <div className="d-flex flex-wrap col-8">
                         <div className="d-flex flex-column">
                             <div>
                                 <img value={product.image} onClick={() => (handleImageChange(product.image))} className="image-preview" src={product.image} />
@@ -58,8 +58,8 @@ function ProductPage() {
                             <div>
                                 <i class="fa-solid fa-circle-arrow-left"></i>
                             </div>
-                            <div>
-                                <img className="focal-image col-10" src={focalImage} />
+                            <div className="d-flex justify-content-center align-items-center focal-image">
+                                <img className="focal-image" src={focalImage} />
                             </div>
                             
                             <div>
@@ -67,10 +67,25 @@ function ProductPage() {
                             </div>
                         </div>
                     </div>
-                    <div className="candy">
-                        <p>{product.name}</p>
-                        <p>price: £{product.price}</p>
-                        <p>{product.stock}</p>
+                    <div className="candy col-4 d-flex flex-column">
+                        <p className="h3">£{product.price}</p>
+                        <p className="h5">{product.name}</p>
+                        
+                        {(product.stock > 0) && (
+                            <button className="btn my-2 snipcart-add-item"
+                            data-item-id={product.id}
+                            data-item-price={product.price}
+                            data-item-description={product.description}
+                            data-item-image={product.image}
+                            data-item-name={product.name}
+                            data-item-url={window.location.href}
+                        >add to cart</button>
+                        )}
+                        {(product.stock <= 0) && (
+                            <button className="my-2 btn-disabled">
+                                out of stock
+                            </button>
+                        )}
                         <p>{product.description}</p>
 
                     </div>

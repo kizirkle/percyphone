@@ -66,7 +66,8 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
                     name={product.name}
                     description={product.description}
                     price={product.price}
-                    image={product.image}/>
+                    image={product.image}
+                    stock={product.stock}/>
                 ))}
             </section>
             

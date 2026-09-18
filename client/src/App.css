@@ -96,6 +96,14 @@ body {
   --bs-btn-active-color: var(--base);        
 }
 
+.btn-disabled{
+  background:var(--mainsoft);
+  color: var(--base);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
 .title {
   color:var(--main);
   font-size:25px;
@@ -210,7 +218,21 @@ body {
 }
 
 .focal-image {
-  max-width: 50vw;
-  max-height: 50vh;
+  width: 40rem;
+  height: 40rem;
+  background-color: var(--base);
+}
 
+/* slate css */
+.slate{
+  background: white !important;
+  border-radius: 5px;
+  padding:10px;
+  border: dashed 2px var(--main) !important;
+  min-width: 10px;
+  min-height:10px;
+}
+
+.slate:active{
+  border: dashed 2px var(--dark) !important;
 }

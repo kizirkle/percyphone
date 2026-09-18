@@ -4,6 +4,7 @@ import ProductForm from './ProductForm';
 import ProductList from './ProductList';
 import TagList from '../Tag/TagList'
 import ProductImages from './ProductImages'
+import DescriptionMaker from './DescriptionMaker';
 
 //react
 function EditProduct() {
@@ -15,7 +16,7 @@ function EditProduct() {
     var [images, setImages] = useState([]);
     var [formState, setFormState] = useState({
         name:'',
-        description:'',
+        description:[],
         price:0,
         image:'',
         stock:0,
@@ -206,9 +207,10 @@ function EditProduct() {
                 <TagList onSelectTag={onSelectTag} refresh={refresh} isProducts={true}/>
                 <ProductList onSelectProduct={onSelectProduct} refresh={refresh}/>
                 <ProductImages images={images} refresh={refresh} setImages={setImages} originalImageNum={originalImageNum}/>
+                <DescriptionMaker formState={formState} setFormState={setFormState} edit={true}/>
             </div>
             
-            <ProductForm formState={formState} onSelectTag={onSelectTag} selectedTags={selectedTags} message={message} handleChange={handleChange} handleFormSubmit={handleFormSubmit}/>
+            <ProductForm formState={formState} onSelectTag={onSelectTag} selectedTags={selectedTags} message={message} handleChange={handleChange} btnMessage={"Edit Product"} handleFormSubmit={handleFormSubmit}/>
 
         </div>
     )

@@ -1,6 +1,6 @@
 import Product from '../../Product';
 
-function ProductForm({handleFormSubmit, formState, handleChange, message, selectedTags, onSelectTag}){
+function ProductForm({handleFormSubmit, formState, handleChange, message, selectedTags, onSelectTag, btnMessage}){
 
     return(
     <aside className="d-flex flex-row-reverse flex-wrap justify-content-between">
@@ -31,13 +31,6 @@ function ProductForm({handleFormSubmit, formState, handleChange, message, select
                     onChange={handleChange}/>
                 </div>
                 <div className="d-flex flex-column m-1 justify-content-center">
-                    <label>Product Description</label>
-                    <input type="text"
-                    name="description"
-                    value={formState.description}
-                    onChange={handleChange}/>
-                </div>
-                <div className="d-flex flex-column m-1 justify-content-center">
                     <label>Product Price</label>
                     <input type="integer"
                     name="price"
@@ -51,7 +44,7 @@ function ProductForm({handleFormSubmit, formState, handleChange, message, select
                     value={formState.image}
                     onChange={handleChange}/>
                 </div>
-                
+
                 <div className="d-flex flex-column m-1 justify-content-center">
                     <label>Product's Initial Stock</label>
                     <input type="integer"
@@ -67,7 +60,7 @@ function ProductForm({handleFormSubmit, formState, handleChange, message, select
                     onChange={handleChange}
                     />
                 </div>
-                <button className="btn m-1">Add Product</button>
+                <button className="btn m-1">{btnMessage}</button>
                 <div>{message}</div>
             </form>
         </aside>

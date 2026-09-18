@@ -20,9 +20,9 @@ function ProductImages({images, setImages}){
     }
 
     return(
-        <div>
-            <div>
-                <label>
+        <div className="m-1 d-flex flex-column justify-content-center align-content-center col-12">
+            <div className="col-12">
+                <label className="text-center">
                     How many images would you like to add?
                 </label>
                 <input
@@ -30,7 +30,7 @@ function ProductImages({images, setImages}){
                 min="0"
                 onChange={handleImageCount}/>
             </div>
-            <div>
+            <div className="col-12">
                 {images.map((image, index) => (
                     <div key={index}>
                         <label>Image {index + 1}: </label>

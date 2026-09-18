@@ -34,16 +34,21 @@ function Product({id, name, description, price, image, stock }) {
                 £{price}
                 </Card.Text>
                 {/* Add to Cart Snipcart Button */}
-                <Button
-                    className="snipcart-add-item"
-                    data-item-id={id}
-                    data-item-price={price}
-                    data-item-description={description}
-                    data-item-image={image}
-                    data-item-name={name}
-                    data-item-url={window.location.href}>
-                    Add to Cart
-                </Button>
+                {(stock > 0) && (
+                            <Button className="btn my-2 snipcart-add-item"
+                            data-item-id={id}
+                            data-item-price={price}
+                            data-item-description={description}
+                            data-item-image={image}
+                            data-item-name={name}
+                            data-item-url={window.location.href}
+                        >add to cart</Button>
+                        )}
+                        {(stock <= 0) && (
+                            <Button className="my-2 btn-disabled">
+                                out of stock
+                            </Button>
+                        )}
             </Card.Body>
         </Card>
         </a>

@@ -3,11 +3,12 @@ import {useState, useEffect} from 'react';
 import TagList from '../Tag/TagList';
 import ProductForm from './ProductForm'
 import ProductImages from './ProductImages';
+import DescriptionMaker from './DescriptionMaker';
 //react
 function AddProduct() {
     var [formState, setFormState] = useState({
         name:'',
-        description:'',
+        description:[],
         price:0,
         image:'',
         stock:0,
@@ -94,7 +95,7 @@ function AddProduct() {
         // clear form values
         setFormState({
             name:'',
-            description:'',
+            description:[],
             price:0,
             image:'',
             stock:0,
@@ -107,9 +108,10 @@ function AddProduct() {
         <div className="d-flex justify-content-around align-items-center col-12 flex-wrap">
             <div className="col-lg-5 col-10 d-flex flex-wrap justify-content-center">
                 <TagList onSelectTag={onSelectTag} refresh={refresh}/>
+                <DescriptionMaker formState={formState} setFormState={setFormState} edit={false}/>
                 <ProductImages setImages={setImages} images={images} originalImageNum={0}/>
             </div>
-            <ProductForm handleFormSubmit={handleFormSubmit} formState={formState} selectedTags={selectedTags} handleChange={handleChange} message={message}/>
+            <ProductForm handleFormSubmit={handleFormSubmit} btnMessage={"Add Product"} formState={formState} selectedTags={selectedTags} handleChange={handleChange} message={message}/>
         </div>
     )
 }

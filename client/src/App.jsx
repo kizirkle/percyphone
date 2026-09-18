@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { createBrowserRouter, redirect, RouterProvider} from 'react-router-dom'
 
+
 //pages
 import Home from './pages/navigation/Home'
 import Dash from './pages/admin/Dash'
-import Faq from './pages/Faq'
+import Faq from './pages/navigation/Faq'
 import About from './pages/navigation/About'
 import Error from './pages/navigation/Error'
 import Clowns from './pages/navigation/Clowns'

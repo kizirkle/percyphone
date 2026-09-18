@@ -222,3 +222,17 @@ body {
   height: 40rem;
   background-color: var(--base);
 }
+
+/* slate css */
+.slate{
+  background: white !important;
+  border-radius: 5px;
+  padding:10px;
+  border: dashed 2px var(--main) !important;
+  min-width: 10px;
+  min-height:10px;
+}
+
+.slate:active{
+  border: dashed 2px var(--dark) !important;
+}

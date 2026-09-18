@@ -1,6 +1,7 @@
 //imports
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import DescriptionRenderer from "../../components/DescriptionRenderer";
 
 //react
 function ProductPage() {
@@ -86,7 +87,7 @@ function ProductPage() {
                                 out of stock
                             </button>
                         )}
-                        <p>{product.description}</p>
+                        <DescriptionRenderer value={product.description}/>
 
                     </div>
                     

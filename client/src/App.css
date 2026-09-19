@@ -1,6 +1,7 @@
 
 :root {
   --base: #f9f2e8;
+  --lightbase: #fcf8f3;
   --main: #dd97aa;
   --mainsoft: #efc2ce;
   --dark_base: #efe3d3;
@@ -190,6 +191,10 @@ body {
   object-fit:cover;
 }
 
+.name-font{
+  font-size:18px;
+}
+
 .product:hover{
   border: dashed var(--main) 2px;
 }
@@ -218,11 +223,20 @@ body {
 }
 
 .focal-image {
-  width: 40rem;
-  height: 40rem;
+  width: 30rem;
+  height: 30rem;
+  margin-left: 10px;
   background-color: var(--base);
+  background-size:cover;
+  background-position:center;
 }
 
+.product-info{
+  padding:10px;
+  background: var(--lightbase);
+  border-radius: 5px;
+  border: dashed 2px var(--main);
+}
 /* slate css */
 .slate{
   background: white !important;

@@ -4,9 +4,12 @@
 function Error() {
 
     return(
-        <>
-            <p>hi im Error page. Something went wrong.</p>
-        </>
+        <main>
+            <h2>
+                Something went Wrong. Please Try Again Later.
+            </h2>
+            <p></p>
+        </main>
     )
 }
 //export

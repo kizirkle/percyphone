@@ -29,7 +29,8 @@ function Product({id, name, description, price, image, stock }) {
 
             {/* Product Card */}
             <Card.Body className="justify-content-center d-flex flex-column">
-                <Card.Title className="text-center my-0 text-decoration-none">{name}</Card.Title>
+                <Card.Title className="text-center my-0 name-font text-decoration-none text-truncate" style={{ width:"10rem"}}>
+                    {name}</Card.Title>
                 <Card.Text className="text-center my-0">
                 £{price}
                 </Card.Text>

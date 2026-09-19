@@ -10,6 +10,8 @@ const DescriptionRenderer = ({ value }) => {
 
     const style = {}
 
+    
+
     if ('align' in element) {
       style.textAlign = element.align
     }
@@ -86,11 +88,22 @@ const DescriptionRenderer = ({ value }) => {
     return <span {...attributes}>{children}</span>
   }, [])
 
+  const checkValue = (value) => {
+    if(value == [{}]){
+        return null;
+    }
+    else{
+        return value;
+    }
+  }
+
   return (
     <Slate
       editor={editor}
-      initialValue={value}
+      
+      initialValue={checkValue(value)}
     >
+        
       <Editable
         readOnly
         renderElement={renderElement}

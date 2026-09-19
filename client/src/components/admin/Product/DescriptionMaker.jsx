@@ -1,4 +1,3 @@
-import isHotkey from 'is-hotkey'
 import React, { useCallback, useMemo, useState, useEffect } from 'react'
 import { Editor, Node, Transforms, createEditor } from 'slate'
 import { withHistory } from 'slate-history'
@@ -18,15 +17,21 @@ function DescriptionMaker ({formState, setFormState, edit}) {
   const renderLeaf = useCallback(props => <Leaf {...props} />, [])
   const editor = useMemo(() => withHistory(withReact(createEditor())), [])
 
+    // wait until we actually have the data before mounting Slate
+  if (edit && !formState.description) {
+    return <div>Loading…</div> // or null / a skeleton
+  }
+  
   return (
     <Slate 
+    key={edit ? formState.id ?? 'edit' : 'new'}
     className="col-12 d-flex flex-column"
     editor={editor} 
     initialValue={
-  edit && formState.description?.length
-    ? formState.description
-    : initialValue
-}
+    edit && formState.description.length > 0
+        ? formState.description
+        : initialValue
+    }
     onChange={(value) => {
     setFormState(prev => ({
       ...prev,

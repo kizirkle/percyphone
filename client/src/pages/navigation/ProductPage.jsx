@@ -122,7 +122,7 @@ function ProductPage() {
                     {/* FUTURE DEVELOPMENT: Place a 'more from this tag' section where it will show more items with the same tags.*/}
                     <div className="product-info m-3 col-12">
                         <h2 className="candy m-3 ">More Like This:</h2>
-                        <Sorter sectionArray={tags}/>
+                        <Sorter sectionArray={tags} isClown={product.isClown}/>
                     </div>
                     
                 </div>

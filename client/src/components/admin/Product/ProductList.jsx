@@ -34,7 +34,7 @@ function ProductList({onSelectProduct, refresh}){
             <button className="btn col-12 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Choose Product
             </button>
-            <ul className="dropdown-menu drop">
+            <ul className="dropdown-menu dropdown-scrollable drop">
                 {products.map((product) => (
                     <li className="" key={product.id}>
                         <button className="dropdown-item dropItem" 

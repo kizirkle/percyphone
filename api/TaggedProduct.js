@@ -30,15 +30,6 @@ router.post('/', async(req, res) => {
         //increment tag's product_num
         if(isClown== true){
             const  incrementData = await supabase
-            .rpc('increment_product', { x: 1, row_id: tag_id })
-
-            if (incrementData.error) {
-                console.log(incrementData.error);
-                throw incrementData.error;
-            }
-        }
-        else{
-            const  incrementData = await supabase
             .rpc('increment_clown', { x: 1, row_id: tag_id })
 
             if (incrementData.error) {
@@ -46,6 +37,15 @@ router.post('/', async(req, res) => {
                 throw incrementData.error;
             }
             
+        }
+        else{
+            const  incrementData = await supabase
+            .rpc('increment_product', { x: 1, row_id: tag_id })
+
+            if (incrementData.error) {
+                console.log(incrementData.error);
+                throw incrementData.error;
+            }
         }
 
         
@@ -73,7 +73,7 @@ router.post('/tag', async (req, res) => {
         }
 
         const productIds = data.map((item) => item.product_id);
-        if(isClown){
+        if(isClown == true){
             const {data: productData, error: productError} = await supabase
             .schema('percyphone')
             .from('product')
@@ -88,7 +88,7 @@ router.post('/tag', async (req, res) => {
             //if not, send the data necessary
             res.status(201).json({ message: 'Success', productData });
 
-        } else{
+        } else {
             const {data: productData, error: productError} = await supabase
             .schema('percyphone')
             .from('product')

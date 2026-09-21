@@ -52,6 +52,7 @@ function ProductSection({sectionTitle, id, isClown, newProducts}){
     useEffect(()=>{
         getProducts();
     }, [newProducts, id, isClown])
+    
     return(
         <div>
             <h2 id={id} className="title candy m-2 py-3">

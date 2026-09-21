@@ -74,7 +74,7 @@ function ProductPage() {
                     
                     {/* Add images As a column of previews*/}
                     <div className="d-flex flex-wrap col-lg-7 col-12">
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column col-12 col-lg-2">
                             <div>
                                 <img value={product.image} onClick={() => (handleImageChange(product.image))} className="image-preview" src={product.image} />
                             </div>
@@ -86,9 +86,9 @@ function ProductPage() {
                         </div>
                         
                         {/* WHEN I click on image, it gets pulled up as the main image */}
-                        <div className="d-flex align-items-center">
-                            <div className="d-flex justify-content-center align-items-center focal-image">
-                                <div className="focal-image rounded" style={{ backgroundImage: `url(${focalImage})` }}>
+                        <div className="d-flex col-lg-9 col-12 justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center col-12 align-items-center focal-image">
+                                <div className="focal-image col-12 rounded" style={{ backgroundImage: `url(${focalImage})` }}>
                                     </div>
                             </div>
                         </div>

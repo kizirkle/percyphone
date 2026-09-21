@@ -59,6 +59,11 @@ body {
 .link:active, .link:hover{
   color: var(--text);
 }
+.dropdown-scrollable {
+  max-height: 50px !important;     
+  overflow-y: auto;      
+  overflow-x: hidden;    
+}
 
 .logo{
   background: url(/wip_logo.png);
@@ -223,7 +228,7 @@ body {
 }
 
 .focal-image {
-  width: 30rem;
+  /* width: 30rem; */
   height: 30rem;
   margin-left: 10px;
   background-color: var(--base);
@@ -236,6 +241,13 @@ body {
   background: var(--lightbase);
   border-radius: 5px;
   border: dashed 2px var(--main);
+}
+
+/* about css */
+.about-image{
+  border-radius:5px;
+  background: var(--lightbase);
+  height:25rem;
 }
 /* slate css */
 .slate{

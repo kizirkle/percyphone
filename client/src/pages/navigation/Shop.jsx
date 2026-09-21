@@ -9,6 +9,7 @@ function Shop() {
     return(
         <main>
             <Sorter keyword="no" 
+            isClown={false}
             sectionArray={sectionArray}
             />
         </main>

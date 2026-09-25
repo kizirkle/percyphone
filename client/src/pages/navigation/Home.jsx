@@ -26,7 +26,6 @@ function Home() {
                     </div>
                 </div>
                 <ProductSection newProducts={true} sectionTitle="New Arrivals!"/>
-                <ProductSection sectionTitle="Hot Items!"/>
             </main>
     )
 }

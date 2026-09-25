@@ -60,7 +60,7 @@ body {
   color: var(--text);
 }
 .dropdown-scrollable {
-  max-height: 50px !important;     
+  max-height: 200px !important;     
   overflow-y: auto;      
   overflow-x: hidden;    
 }
